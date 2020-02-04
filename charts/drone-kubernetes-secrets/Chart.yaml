@@ -1,0 +1,25 @@
+# TODO: Change this back to v2 once chart-releaser supports it.
+apiVersion: v1
+name: drone-kubernetes-secrets
+description: A Kubernetes Secrets extension for Drone
+# TODO: Un-comment once we move back to apiVersion: v2.
+# type: application
+version: 0.1.0
+appVersion: 1.0.0
+kubeVersion: "^1.13.0-0"
+home: https://github.com/drone/drone-kubernetes-secrets
+icon: https://drone.io/apple-touch-icon.png
+keywords:
+  - continuous-delivery
+  - continuous-deployment
+  - continuous-integration
+  - docker
+  - drone
+  - drone.io
+  - go
+sources:
+  - https://github.com/drone/drone-kubernetes-secrets
+  - https://github.com/drone/helm
+maintainers:
+  - name: Drone
+    email: hello@drone.io

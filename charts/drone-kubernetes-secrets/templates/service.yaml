@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "drone-kubernetes-secrets.fullname" . }}
+  labels:
+    {{- include "drone-kubernetes-secrets.labels" . | nindent 4 }}
+spec:
+  type: {{ .Values.service.type }}
+  ports:
+    - port: {{ .Values.service.port }}
+      targetPort: http
+      protocol: TCP
+      name: http
+  selector:
+    {{- include "drone-kubernetes-secrets.selectorLabels" . | nindent 4 }}

@@ -1,0 +1,90 @@
+image:
+  repository: drone/kubernetes-secrets
+  tag: latest
+  pullPolicy: IfNotPresent
+
+## If you need to pull images from a private Docker image repository, pass in the name
+## of a Kubernetes Secret that contains the needed secret. For more details, see:
+## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+##
+imagePullSecrets: []
+# - name: "image-pull-secret"
+
+## For small or experimental deployments of the Kubernetes runner, 1 replica will suffice.
+## For production cases, 2-3 are recommended. This does not grant additional parallelism,
+## but does ensure that upgrades, config changes, and disruptions are handled more gracefully.
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+## Add extra annotations to the Kubernetes pod here.
+##
+podAnnotations: {}
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+## If you'd like to force the pod to run on a specific node or set of nodes, set a selector here.
+##
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+## If you'd like to provide your own Kubernetes Secret object instead of passing your values
+## in un-encrypted, pass in the name of a created + populated Secret in the same Namespace
+## as the pod. All secrets within this configmap will be mounted as environment variables,
+## with each key/value mapping to a corresponding environment variable on the pod.
+##
+extraSecretNamesForEnvFrom: []
+# - my-drone-secrets
+
+rbac:
+  ## If true, create a Role + Rolebinding in the secretNamespace that allows the extension to
+  ## fetch Kubernetes Secrets.
+  ##
+  enabled: true
+  ## The namespace that the extension is allowed to fetch secrets from. Unless
+  ## rbac.restrictToSecrets is set below, the extension will be able to pull all secrets in
+  ## the namespace specified here.
+  ##
+  secretNamespace: default
+  ## Optionally restrict secret pulls to a subset of secrets in the secret namespace. This is
+  ## particularly useful if your secrets extension is fetching secrets from a namespace that other
+  ## Drone components have been deployed to.
+  restrictToSecrets: []
+
+## The keys within the "env" map are mounted as environment variables on the secrets extension pod.
+##
+env:
+  ## REQUIRED: Shared secret value for comms between the Kubernetes runner and this secrets plugin.
+  ## Must match the value set in the runner's env.DRONE_SECRET_PLUGIN_TOKEN.
+  ## Ref: https://kube-runner.docs.drone.io/installation/reference/drone-secret-plugin-token/
+  ##
+  # SECRET_KEY:
+
+  ## The Kubernetes namespace to retrieve secrets from.
+  ##
+  KUBERNETES_NAMESPACE: default

@@ -1,0 +1,134 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "image",
+    "imagePullSecrets",
+    "replicaCount",
+    "nameOverride",
+    "fullnameOverride",
+    "podSecurityContext",
+    "securityContext",
+    "podAnnotations",
+    "service",
+    "resources",
+    "nodeSelector",
+    "tolerations",
+    "affinity",
+    "extraSecretNamesForEnvFrom",
+    "env"
+  ],
+  "properties": {
+    "image": {
+      "$id": "#/properties/image",
+      "type": "object",
+      "required": [
+        "repository",
+        "tag",
+        "pullPolicy"
+      ],
+      "properties": {
+        "repository": {
+          "$id": "#/properties/image/properties/repository",
+          "type": "string"
+        },
+        "tag": {
+          "$id": "#/properties/image/properties/tag",
+          "type": "string"
+        },
+        "pullPolicy": {
+          "$id": "#/properties/image/properties/pullPolicy",
+          "type": "string",
+          "enum": ["Always", "IfNotPresent", "Never"]
+        }
+      }
+    },
+    "imagePullSecrets": {
+      "$id": "#/properties/imagePullSecrets",
+      "type": "array"
+    },
+    "replicaCount": {
+      "$id": "#/properties/replicaCount",
+      "type": "integer",
+      "minimum": 0
+    },
+    "nameOverride": {
+      "$id": "#/properties/nameOverride",
+      "type": "string"
+    },
+    "fullnameOverride": {
+      "$id": "#/properties/fullnameOverride",
+      "type": "string"
+    },
+    "podSecurityContext": {
+      "$id": "#/properties/podSecurityContext",
+      "type": "object"
+    },
+    "securityContext": {
+      "$id": "#/properties/securityContext",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "$id": "#/properties/podAnnotations",
+      "type": "object"
+    },
+    "service": {
+      "$id": "#/properties/service",
+      "type": "object",
+      "required": [
+        "type",
+        "port"
+      ],
+      "properties": {
+        "type": {
+          "$id": "#/properties/service/properties/type",
+          "type": "string",
+          "enum": ["ClusterIP", "ExternalName", "LoadBalancer", "NodePort"]
+        },
+        "port": {
+          "$id": "#/properties/service/properties/port",
+          "type": "integer"
+        }
+      }
+    },
+    "resources": {
+      "$id": "#/properties/resources",
+      "type": "object"
+    },
+    "nodeSelector": {
+      "$id": "#/properties/nodeSelector",
+      "type": "object"
+    },
+    "tolerations": {
+      "$id": "#/properties/tolerations",
+      "type": "array"
+    },
+    "affinity": {
+      "$id": "#/properties/affinity",
+      "type": "object"
+    },
+    "rbac": {
+      "$id": "#/properties/rbac",
+      "type": "object"
+    },
+    "extraSecretNamesForEnvFrom": {
+      "$id": "#/properties/extraSecretNamesForEnvFrom",
+      "type": "array"
+    },
+    "env": {
+      "$id": "#/properties/env",
+      "type": "object",
+      "required": [
+        "SECRET_KEY"
+      ],
+      "properties": {
+        "SECRET_KEY": {
+          "$id": "#/properties/env/properties/SECRET_KEY",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}
