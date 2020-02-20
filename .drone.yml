@@ -14,3 +14,26 @@ steps:
   commands:
   - apk add --update make
   - make publish
+
+#- name: push
+#  image: appleboy/drone-git-push
+#  pull: if-not-exists
+#  settings:
+#    branch: master
+#    remote: git@github.com:drone/charts.git
+#    commit: true
+#    commit_message: update charts [CI SKIP]
+#    key:
+#      from_secret: ssh_deploy_key
+#  when:
+#    event:
+#    - push
+#
+#- name: publish
+#  image: lucap/drone-netlify
+#  settings:
+#    path: ./docs
+#    site_id:
+#      from_secret: netlify_site_id
+#    token:
+#      from_secret: netlify_token
