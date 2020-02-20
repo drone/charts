@@ -1,0 +1,16 @@
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: lint
+  image: quay.io/helmpack/chart-testing:v3.0.0-beta.1
+  commands:
+  - apk add --update make
+  - make lint
+
+- name: generate
+  image: alpine/helm:3.0.3
+  commands:
+  - apk add --update make
+  - make publish
