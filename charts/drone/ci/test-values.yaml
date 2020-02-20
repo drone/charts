@@ -1,0 +1,6 @@
+# This values file is used during CI tests.
+env:
+  DRONE_SERVER_HOST: drone.example.com
+  DRONE_RPC_SECRET: test-secret
+  DRONE_GITHUB_CLIENT_ID: xxx
+  DRONE_GITHUB_CLIENT_SECRET: xxx

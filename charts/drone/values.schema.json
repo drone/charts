@@ -1,0 +1,169 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "type": "object",
+  "required": [
+    "image",
+    "imagePullSecrets",
+    "nameOverride",
+    "fullnameOverride",
+    "podSecurityContext",
+    "securityContext",
+    "podAnnotations",
+    "service",
+    "ingress",
+    "resources",
+    "nodeSelector",
+    "tolerations",
+    "affinity",
+    "extraVolumes",
+    "extraVolumeMounts",
+    "extraSecretNamesForEnvFrom",
+    "env"
+  ],
+  "properties": {
+    "image": {
+      "$id": "#/properties/image",
+      "type": "object",
+      "required": [
+        "repository",
+        "tag",
+        "pullPolicy"
+      ],
+      "properties": {
+        "repository": {
+          "$id": "#/properties/image/properties/repository",
+          "type": "string"
+        },
+        "tag": {
+          "$id": "#/properties/image/properties/tag",
+          "type": "string"
+        },
+        "pullPolicy": {
+          "$id": "#/properties/image/properties/pullPolicy",
+          "type": "string",
+          "enum": ["Always", "IfNotPresent", "Never"]
+        }
+      }
+    },
+    "imagePullSecrets": {
+      "$id": "#/properties/imagePullSecrets",
+      "type": "array"
+    },
+    "nameOverride": {
+      "$id": "#/properties/nameOverride",
+      "type": "string"
+    },
+    "fullnameOverride": {
+      "$id": "#/properties/fullnameOverride",
+      "type": "string"
+    },
+    "podSecurityContext": {
+      "$id": "#/properties/podSecurityContext",
+      "type": "object"
+    },
+    "securityContext": {
+      "$id": "#/properties/securityContext",
+      "type": "object"
+    },
+    "podAnnotations": {
+      "$id": "#/properties/podAnnotations",
+      "type": "object"
+    },
+    "service": {
+      "$id": "#/properties/service",
+      "type": "object",
+      "required": [
+        "type",
+        "port"
+      ],
+      "properties": {
+        "type": {
+          "$id": "#/properties/service/properties/type",
+          "type": "string",
+          "enum": ["ClusterIP", "ExternalName", "LoadBalancer", "NodePort"]
+        },
+        "port": {
+          "$id": "#/properties/service/properties/port",
+          "type": "integer"
+        }
+      }
+    },
+    "ingress": {
+      "$id": "#/properties/ingress",
+      "type": "object",
+      "required": [
+        "enabled",
+        "annotations",
+        "hosts",
+        "tls"
+      ],
+      "properties": {
+        "enabled": {
+          "$id": "#/properties/ingress/properties/enabled",
+          "type": "boolean"
+        },
+        "annotations": {
+          "$id": "#/properties/ingress/properties/annotations",
+          "type": "object"
+        },
+        "hosts": {
+          "$id": "#/properties/ingress/properties/hosts",
+          "type": "array"
+        },
+        "tls": {
+          "$id": "#/properties/ingress/properties/tls",
+          "type": "array"
+        }
+      }
+    },
+    "resources": {
+      "$id": "#/properties/resources",
+      "type": "object"
+    },
+    "nodeSelector": {
+      "$id": "#/properties/nodeSelector",
+      "type": "object"
+    },
+    "tolerations": {
+      "$id": "#/properties/tolerations",
+      "type": "array"
+    },
+    "affinity": {
+      "$id": "#/properties/affinity",
+      "type": "object"
+    },
+    "extraVolumes": {
+      "$id": "#/properties/extraVolumes",
+      "type": "array"
+    },
+    "extraVolumeMounts": {
+      "$id": "#/properties/extraVolumeMounts",
+      "type": "array"
+    },
+    "extraSecretNamesForEnvFrom": {
+      "$id": "#/properties/extraSecretNamesForEnvFrom",
+      "type": "array"
+    },
+    "env": {
+      "$id": "#/properties/env",
+      "type": "object",
+      "required": [
+        "DRONE_SERVER_HOST",
+        "DRONE_RPC_SECRET"
+      ],
+      "properties": {
+        "DRONE_SERVER_HOST": {
+          "$id": "#/properties/env/properties/DRONE_SERVER_HOST",
+          "type": "string",
+          "minLength": 3
+        },
+        "DRONE_RPC_SECRET": {
+          "$id": "#/properties/env/properties/DRONE_RPC_SECRET",
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    }
+  }
+}

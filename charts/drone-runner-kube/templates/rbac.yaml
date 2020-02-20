@@ -1,0 +1,59 @@
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ include "drone-runner-kube.fullname" . }}
+  labels:
+    {{- include "drone-runner-kube.labels" . | nindent 4 }}
+
+{{/* A Role is created for every namespace we want to run builds in. */}}
+{{- $root := . }}
+{{- range .Values.rbac.buildNamespaces }}
+---
+kind: Role
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "drone-runner-kube.fullname" $root }}
+  namespace: {{ . | quote }}
+  labels:
+    {{- include "drone-runner-kube.labels" $root | nindent 4 }}
+rules:
+  - apiGroups:
+      - ""
+    resources:
+      - secrets
+    verbs:
+      - create
+      - delete
+  - apiGroups:
+      - ""
+    resources:
+      - pods
+      - pods/log
+    verbs:
+      - get
+      - create
+      - delete
+      - list
+      - watch
+      - update
+{{ end -}}
+
+{{/* The role gets bound to the runner's ServiceAccount in the runner's namespace. */}}
+{{- range $nsName := .Values.rbac.buildNamespaces }}
+---
+kind: RoleBinding
+apiVersion: rbac.authorization.k8s.io/v1
+metadata:
+  name: {{ include "drone-runner-kube.fullname" $root }}
+  namespace: {{ . | quote }}
+  labels:
+    {{- include "drone-runner-kube.labels" $root | nindent 4 }}
+subjects:
+  - kind: ServiceAccount
+    name: {{ include "drone-runner-kube.fullname" $root }}
+    namespace: {{ $root.Release.Namespace }}
+roleRef:
+  kind: Role
+  name: {{ include "drone-runner-kube.fullname" $root }}
+  apiGroup: rbac.authorization.k8s.io
+{{ end -}}

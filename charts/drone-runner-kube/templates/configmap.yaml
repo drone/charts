@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ include "drone-runner-kube.fullname" . }}
+  labels:
+    {{- include "drone-runner-kube.labels" . | nindent 4 }}
+data:
+  {{/*
+    Rather than maintain a comprehensive ConfigMap, we map all sub-keys of the "env" value here.
+    This allows for more flexibility and less Chart churn as Drone evolves.
+  */}}
+{{- range $envKey, $envVal := .Values.env }}
+  {{ $envKey | upper }}: {{ $envVal | quote }}
+{{- end }}

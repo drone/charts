@@ -1,0 +1,25 @@
+# TODO: Change this back to v2 once chart-releaser supports it.
+apiVersion: v1
+name: drone-runner-kube
+description: The Drone Kubernetes runner launches builds in Kubernetes Jobs
+# TODO: Un-comment once we move back to apiVersion: v2.
+# type: application
+version: 0.1.2
+appVersion: 1.0.0
+kubeVersion: "^1.13.0-0"
+home: https://kube-runner.docs.drone.io/
+icon: https://drone.io/apple-touch-icon.png
+keywords:
+  - continuous-delivery
+  - continuous-deployment
+  - continuous-integration
+  - docker
+  - drone
+  - drone.io
+  - go
+sources:
+  - https://github.com/drone-runners/drone-runner-kube
+  - https://github.com/drone/helm
+maintainers:
+  - name: Drone
+    email: hello@drone.io
