@@ -13,6 +13,9 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# Drone server does not interact with the Kubernetes API server
+automountServiceAccountToken: false
+
 podSecurityContext: {}
   # fsGroup: 2000
 
