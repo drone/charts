@@ -10,6 +10,8 @@ spec:
   selector:
     matchLabels:
       {{- include "drone.selectorLabels" . | nindent 6 }}
+  strategy:
+    {{ toYaml .Values.updateStrategy | indent 4 }}
   template:
     metadata:
       labels:
