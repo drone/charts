@@ -23,7 +23,7 @@ steps:
     remote: git@github.com:drone/charts.git
     commit: true
     commit_message: update charts [CI SKIP]
-    key:
+    ssh_key:
       from_secret: ssh_deploy_key
   when:
     event:
