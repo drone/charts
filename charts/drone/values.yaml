@@ -231,6 +231,7 @@ env:
   ##
   # DRONE_GITEA_CLIENT_ID:
   # DRONE_GITEA_CLIENT_SECRET:
+  # DRONE_GITEA_SERVER:
 
   ## Gogs-specific variables. See the provider docs here:
   ## Ref: https://docs.drone.io/installation/providers/gogs/
