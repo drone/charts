@@ -164,8 +164,7 @@
       "$id": "#/properties/env",
       "type": "object",
       "required": [
-        "DRONE_RPC_HOST",
-        "DRONE_RPC_SECRET"
+        "DRONE_RPC_HOST"
       ],
       "properties": {
         "DRONE_RPC_HOST": {
