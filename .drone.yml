@@ -28,6 +28,8 @@ steps:
   when:
     event:
     - push
+    branch:
+    - master
 
 - name: publish
   image: lucap/drone-netlify
@@ -38,3 +40,8 @@ steps:
       from_secret: netlify_site_id
     token:
       from_secret: netlify_token
+  when:
+    event:
+    - push
+    branch:
+    - master
