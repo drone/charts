@@ -99,6 +99,7 @@ extraSecretNamesForEnvFrom: []
 rbac:
   buildNamespaces:
     - default
+  serviceAccountAnnotations: {}
 
 ## The keys within the "env" map are mounted as environment variables on the Kubernetes runner pod.
 ## See the full reference of Kubernetes runner environment variables here:
