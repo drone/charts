@@ -167,7 +167,7 @@ env:
 
   ## REQUIRED: Set the secret secret token that the Drone server and its Runners will use
   ## to authenticate. This is commented out in order to leave you the ability to set the
-  ## key via a separately provisioned secret (see existingSecretName above).
+  ## key via a separately provisioned secret.
   ## Ref: https://docs.drone.io/installation/reference/drone-rpc-secret/
   ##
   # DRONE_RPC_SECRET:
