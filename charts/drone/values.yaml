@@ -1,6 +1,6 @@
 image:
   repository: drone/drone
-  tag: 1.8.1
+  tag: 1.9.0
   pullPolicy: IfNotPresent
 
 ## If you need to pull images from a private Docker image repository, pass in the name
