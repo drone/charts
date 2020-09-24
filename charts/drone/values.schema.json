@@ -10,6 +10,7 @@
     "podSecurityContext",
     "securityContext",
     "podAnnotations",
+    "podLabels",
     "service",
     "ingress",
     "resources",
@@ -42,7 +43,11 @@
         "pullPolicy": {
           "$id": "#/properties/image/properties/pullPolicy",
           "type": "string",
-          "enum": ["Always", "IfNotPresent", "Never"]
+          "enum": [
+            "Always",
+            "IfNotPresent",
+            "Never"
+          ]
         }
       }
     },
@@ -70,6 +75,10 @@
       "$id": "#/properties/podAnnotations",
       "type": "object"
     },
+    "podLabels": {
+      "$id": "#/properties/podLabels",
+      "type": "object"
+    },
     "service": {
       "$id": "#/properties/service",
       "type": "object",
@@ -81,7 +90,12 @@
         "type": {
           "$id": "#/properties/service/properties/type",
           "type": "string",
-          "enum": ["ClusterIP", "ExternalName", "LoadBalancer", "NodePort"]
+          "enum": [
+            "ClusterIP",
+            "ExternalName",
+            "LoadBalancer",
+            "NodePort"
+          ]
         },
         "port": {
           "$id": "#/properties/service/properties/port",

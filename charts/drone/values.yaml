@@ -34,6 +34,9 @@ podAnnotations: {}
 #  prometheus.io/scrape: "true"
 #  prometheus.io/port: "80"
 
+## Add extra labels to the Drone server pods here.
+podLabels: {}
+
 updateStrategy: {}
 
 service:
