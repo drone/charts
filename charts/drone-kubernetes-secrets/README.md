@@ -18,7 +18,7 @@ To adjust an existing Drone install's configuration:
 # If you have a values file:
 helm upgrade drone-kubernetes-secrets drone/drone-kubernetes-secrets --namespace drone --values drone-kubernetes-secrets-values.yaml
 # If you want to change one value and don't have a values file:
-helm upgrade drone drone/drone-kubernetes-secrets --namespace drone --reuse-values --set someKey=someVal
+helm upgrade drone-kubernetes-secrets drone/drone-kubernetes-secrets --namespace drone --reuse-values --set someKey=someVal
 ```
 
 ## Upgrading Drone Kubernetes Secrets extension
@@ -28,7 +28,7 @@ Read the [release notes](https://discourse.drone.io/c/announcements/6) to make s
 ```console
 # This pulls the latest version of the drone chart from the repo.
 help repo update
-helm upgrade drone drone/drone-kubernetes-secrets --namespace drone --values drone-kubernetes-secrets-values.yaml
+helm upgrade drone-kubernetes-secrets drone/drone-kubernetes-secrets --namespace drone --values drone-kubernetes-secrets-values.yaml
 ```
 
 ## Uninstalling Drone Kubernetes Secrets extension
