@@ -18,7 +18,7 @@ To adjust an existing Drone install's configuration:
 # If you have a values file:
 helm upgrade drone-runner-kube drone/drone-runner-kube --namespace drone --values drone-runner-kube-values.yaml
 # If you want to change one value and don't have a values file:
-helm upgrade drone drone/drone-runner-kube --namespace drone --reuse-values --set someKey=someVal
+helm upgrade drone-runner-kube drone/drone-runner-kube --namespace drone --reuse-values --set someKey=someVal
 ```
 
 ## Upgrading Drone Kubernetes runner
@@ -28,7 +28,7 @@ Read the [release notes](https://discourse.drone.io/c/announcements/6) to make s
 ```console
 # This pulls the latest version of the drone chart from the repo.
 help repo update
-helm upgrade drone drone/drone-runner-kube --namespace drone --values drone-runner-kube-values.yaml
+helm upgrade drone-runner-kube drone/drone-runner-kube --namespace drone --values drone-runner-kube-values.yaml
 ```
 
 ## Uninstalling Drone Kubernetes runner
