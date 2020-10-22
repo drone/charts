@@ -3,10 +3,10 @@ entries:
   drone:
   - apiVersion: v1
     appVersion: 1.9.0
-    created: "2020-08-18T01:02:53.641965844Z"
+    created: "2020-10-22T12:48:41.164068202Z"
     description: Drone is a self-service Continuous Delivery platform for busy development
       teams
-    digest: 541d2d411d551cfbbdf3ccf3f1ddfc0b4d321f10c6c0dae58a2b783f73471704
+    digest: 0bc0ea9a81f8fc0a19641a854fc8291153f2791353c8ce232c8673d7fea5e3f2
     home: https://drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -112,9 +112,9 @@ entries:
   drone-kubernetes-secrets:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2020-08-18T01:02:53.643611321Z"
+    created: "2020-10-22T12:48:41.166213898Z"
     description: A Kubernetes Secrets extension for Drone
-    digest: 6df4397dd8ccde5f41d43d3bdf7b7cbb2e5a63045d2c394c237c625c78c751ea
+    digest: 36725f927ecd2a843737796d3768bd33df7d88aa948f668f6cc1687971f304b6
     home: https://github.com/drone/drone-kubernetes-secrets
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -139,9 +139,9 @@ entries:
   drone-runner-kube:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2020-08-18T01:02:53.644495249Z"
+    created: "2020-10-22T12:48:41.167240564Z"
     description: The Drone Kubernetes runner launches builds in Kubernetes Jobs
-    digest: aedaacb11a020b897197e979644ff63b076cdf985abdbcad01b0a21618c53554
+    digest: 47735a540cdd1e2184ce380c47a029748109fd04a22277d89d66a0544c6a119c
     home: https://kube-runner.docs.drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -215,4 +215,4 @@ entries:
     urls:
     - https://charts.drone.io/drone-runner-kube-0.1.2.tgz
     version: 0.1.2
-generated: "2020-08-18T01:02:53.640586176Z"
+generated: "2020-10-22T12:48:41.162810323Z"
