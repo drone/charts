@@ -27,7 +27,7 @@ Read the [release notes](https://discourse.drone.io/c/announcements/6) to make s
 
 ```console
 # This pulls the latest version of the drone chart from the repo.
-help repo update
+helm repo update
 helm upgrade drone drone/drone --namespace drone --values drone-values.yaml
 ```
 
