@@ -2,6 +2,7 @@ image:
   repository: drone/drone-runner-kube
   tag: 1.0.0-beta.4
   pullPolicy: IfNotPresent
+  args: []
 
 ## If you need to pull images from a private Docker image repository, pass in the name
 ## of a Kubernetes Secret that contains the needed secret. For more details, see:
