@@ -3,10 +3,10 @@ entries:
   drone:
   - apiVersion: v1
     appVersion: 1.9.0
-    created: "2020-10-22T12:48:41.164068202Z"
+    created: "2020-12-10T20:36:53.55513506Z"
     description: Drone is a self-service Continuous Delivery platform for busy development
       teams
-    digest: 0bc0ea9a81f8fc0a19641a854fc8291153f2791353c8ce232c8673d7fea5e3f2
+    digest: 86a439e0a884544ad08f6bc7c7a7b5575706b26fd1158511e13f0bdbae52eb0c
     home: https://drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -112,9 +112,9 @@ entries:
   drone-kubernetes-secrets:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2020-10-22T12:48:41.166213898Z"
+    created: "2020-12-10T20:36:53.555927313Z"
     description: A Kubernetes Secrets extension for Drone
-    digest: 36725f927ecd2a843737796d3768bd33df7d88aa948f668f6cc1687971f304b6
+    digest: b252a1e6b658581a7cb4a2fd2d750cf1b65d12131c641a809f9285042d24e0dd
     home: https://github.com/drone/drone-kubernetes-secrets
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -137,6 +137,32 @@ entries:
     - https://charts.drone.io/drone-kubernetes-secrets-0.1.0.tgz
     version: 0.1.0
   drone-runner-kube:
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2020-12-10T20:36:53.55681734Z"
+    description: The Drone Kubernetes runner launches builds in Kubernetes Jobs
+    digest: e21a33cc4f6dfbd8d97bd2416770f9ea5a086d153495a6de7713bfd99bbb78db
+    home: https://kube-runner.docs.drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone-runner-kube
+    sources:
+    - https://github.com/drone-runners/drone-runner-kube
+    - https://github.com/drone/helm
+    urls:
+    - https://charts.drone.io/drone-runner-kube-0.1.5.tgz
+    version: 0.1.5
   - apiVersion: v1
     appVersion: 1.0.0
     created: "2020-10-22T12:48:41.167240564Z"
@@ -215,4 +241,4 @@ entries:
     urls:
     - https://charts.drone.io/drone-runner-kube-0.1.2.tgz
     version: 0.1.2
-generated: "2020-10-22T12:48:41.162810323Z"
+generated: "2020-12-10T20:36:53.55367533Z"
