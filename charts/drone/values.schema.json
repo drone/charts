@@ -9,6 +9,7 @@
     "fullnameOverride",
     "podSecurityContext",
     "securityContext",
+    "serviceAccount",
     "podAnnotations",
     "service",
     "ingress",
@@ -65,6 +66,24 @@
     "securityContext": {
       "$id": "#/properties/securityContext",
       "type": "object"
+    },
+    "serviceAccount": {
+      "$id": "#/properties/serviceAccount",
+      "type": "object",
+	  "required": [
+		  "name",
+		  "create"
+	  ],
+	  "properties": {
+		  "name": {
+			  "$id": "#/properties/serviceAccount/name",
+			  "type": "string"
+		  },
+		  "create": {
+			  "$id": "#/properties/serviceAccount/create",
+			  "type": "boolean"
+		  }
+	  } 
     },
     "podAnnotations": {
       "$id": "#/properties/podAnnotations",
