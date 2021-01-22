@@ -2,6 +2,8 @@ apiVersion: v1
 kind: Service
 metadata:
   name: {{ include "drone.fullname" . }}
+  annotations:
+    {{ toYaml .Values.service.annotations | nindent 4 }}
   labels:
     {{- include "drone.labels" . | nindent 4 }}
 spec:
