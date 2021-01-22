@@ -29,10 +29,8 @@ spec:
       automountServiceAccountToken: {{ .Values.automountServiceAccountToken }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
-    {{- if .Values.serviceAccount }}
       serviceAccount: {{ .Values.serviceAccount.name }}
       serviceAccountName: {{ .Values.serviceAccount.name }}
-    {{- end }}
       containers:
         - name: server
           securityContext:
