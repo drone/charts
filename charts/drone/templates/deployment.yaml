@@ -6,7 +6,7 @@ metadata:
     {{- include "drone.labels" . | nindent 4 }}
 spec:
   {{/* Drone server is a singleton. */}}
-  replicas: 1
+  replicas: {{ if ge .Values.replicas 1.0 }}1{{ else if lt .Values.replicas 1.0 }}0{{end}}
   selector:
     matchLabels:
       {{- include "drone.selectorLabels" . | nindent 6 }}

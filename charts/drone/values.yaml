@@ -13,6 +13,14 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# Drone server is a singleton, but it may be desirable to deploy the helm chart with 
+#  a replica count of 0. A scenario here would be deploying a cold-standby copy of 
+#  drone to a different cluster/region/namespace/etc
+# The 'replicas' value may only be one of '0' or '1'.
+# Numbers greater than 1 will be set to 1
+# Numbers less than 1 will be set to 0
+replicas: 1
+
 # Drone server does not interact with the Kubernetes API server
 automountServiceAccountToken: false
 
