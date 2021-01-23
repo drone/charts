@@ -1,6 +1,7 @@
 {{- if .Values.ingress.enabled -}}
 {{- $fullName := include "drone.fullname" . -}}
 {{- $svcPort := .Values.service.port -}}
+{{- $extraPaths := .Values.ingress.extraPaths -}}
 {{- if semverCompare ">=1.14-0" .Capabilities.KubeVersion.GitVersion -}}
 apiVersion: networking.k8s.io/v1beta1
 {{- else -}}
@@ -31,6 +32,9 @@ spec:
     - host: {{ .host | quote }}
       http:
         paths:
+{{ if $extraPaths }}
+{{ toYaml $extraPaths | indent 10 }}
+{{- end }}
         {{- range .paths }}
           - path: {{ . }}
             backend:
