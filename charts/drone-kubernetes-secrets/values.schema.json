@@ -119,9 +119,6 @@
     "env": {
       "$id": "#/properties/env",
       "type": "object",
-      "required": [
-        "SECRET_KEY"
-      ],
       "properties": {
         "SECRET_KEY": {
           "$id": "#/properties/env/properties/SECRET_KEY",
