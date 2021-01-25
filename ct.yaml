@@ -3,6 +3,6 @@ remote: origin
 chart-dirs:
   - charts
 chart-repos:
-  - bitnami=https://charts.bitnami.com
-  - stable=https://kubernetes-charts.storage.googleapis.com
+  - bitnami=https://charts.bitnami.com/bitnami
+  - stable=https://charts.helm.sh/stable
 helm-extra-args: --timeout 600
