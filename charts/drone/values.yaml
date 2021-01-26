@@ -28,7 +28,7 @@ securityContext: {}
   # runAsUser: 1000
 
 ## If you need to run drone under a specific kubernetes service account, pass in
-## the name and any annotations here. 
+## the name and any annotations here.
 ## If you need the service account created, set create: to true
 ## Annotations are added to service account only when create: true.
 serviceAccount:
