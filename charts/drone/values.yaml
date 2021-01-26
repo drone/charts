@@ -13,8 +13,8 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
-# Drone server is a singleton, but it may be desirable to deploy the helm chart with 
-#  a replica count of 0. A scenario here would be deploying a cold-standby copy of 
+# Drone server is a singleton, but it may be desirable to deploy the helm chart with
+#  a replica count of 0. A scenario here would be deploying a cold-standby copy of
 #  drone to a different cluster/region/namespace/etc
 # The 'replicas' value may only be one of '0' or '1'.
 # Numbers greater than or equal to 1 will be set to 1
