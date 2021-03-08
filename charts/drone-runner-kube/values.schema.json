@@ -5,6 +5,7 @@
   "required": [
     "image",
     "imagePullSecrets",
+    "topologySpreadConstraints",
     "replicaCount",
     "terminationGracePeriodSeconds",
     "nameOverride",
@@ -80,6 +81,10 @@
     "podAnnotations": {
       "$id": "#/properties/podAnnotations",
       "type": "object"
+    },
+    "topologySpreadConstraints": {
+      "$id": "#/properties/topologySpreadConstraints",
+      "type": "array"
     },
     "service": {
       "$id": "#/properties/service",
