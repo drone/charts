@@ -1,0 +1,89 @@
+image:
+  repository: drone/vault
+  tag: latest
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+
+## If you need to pull images from a private Docker image repository, pass in the name
+## of a Kubernetes Secret that contains the needed secret. For more details, see:
+## Ref: https://kubernetes.io/docs/tasks/configure-pod-container/pull-image-private-registry/
+##
+imagePullSecrets: []
+# - name: "image-pull-secret"
+
+## For small or experimental deployments of the Kubernetes runner, 1 replica will suffice.
+## For production cases, 2-3 are recommended. This does not grant additional parallelism,
+## but does ensure that upgrades, config changes, and disruptions are handled more gracefully.
+replicaCount: 1
+
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
+podAnnotations: {}
+
+podSecurityContext: {}
+  # fsGroup: 2000
+
+securityContext: {}
+  # capabilities:
+  #   drop:
+  #   - ALL
+  # readOnlyRootFilesystem: true
+  # runAsNonRoot: true
+  # runAsUser: 1000
+
+service:
+  type: ClusterIP
+  port: 3000
+
+resources: {}
+  # limits:
+  #   cpu: 100m
+  #   memory: 128Mi
+  # requests:
+  #   cpu: 100m
+  #   memory: 128Mi
+
+nodeSelector: {}
+
+tolerations: []
+
+affinity: {}
+
+## If you'd like to provide your own Kubernetes Secret object instead of passing your values
+## in un-encrypted, pass in the name of a created + populated Secret in the same Namespace
+## as the pod. All secrets within this configmap will be mounted as environment variables,
+## with each key/value mapping to a corresponding environment variable on the pod.
+##
+extraSecretNamesForEnvFrom: []
+# - my-drone-secrets
+
+## The keys within the "env" map are mounted as environment variables on the secrets extension pod.
+##
+env:
+  ## REQUIRED: Shared secret value for comms between the Kubernetes runner and this secrets plugin.
+  ## Must match the value set in the runner's env.DRONE_SECRET_PLUGIN_TOKEN.
+  ## Ref: https://kube-runner.docs.drone.io/installation/reference/drone-secret-plugin-token/
+  ## This is commented out in order to leave you the ability to set the
+  ## key via a separately provisioned secret (see existingSecretName above).
+  ##
+  # DRONE_SECRET:
+  ##
+  ## 
+  ## Vault related parameter
+  ## For more information about Vault extension parameter, you can take a look here:
+  ## https://github.com/drone/drone-vault
+
+  ## The Kubernetes namespace to retrieve secrets from.
+  ##
+  KUBERNETES_NAMESPACE: default
+
