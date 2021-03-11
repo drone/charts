@@ -59,6 +59,21 @@ tolerations: []
 
 affinity: {}
 
+rbac:
+  ## If true, create a Role + Rolebinding in the secretNamespace that allows the extension to
+  ## fetch Kubernetes Secrets.
+  ##
+  enabled: true
+  ## The namespace that the extension is allowed to fetch secrets from. Unless
+  ## rbac.restrictToSecrets is set below, the extension will be able to pull all secrets in
+  ## the namespace specified here.
+  ##
+  secretNamespace: default
+  ## Optionally restrict secret pulls to a subset of secrets in the secret namespace. This is
+  ## particularly useful if your secrets extension is fetching secrets from a namespace that other
+  ## Drone components have been deployed to.
+  restrictToSecrets: []
+
 ## If you'd like to provide your own Kubernetes Secret object instead of passing your values
 ## in un-encrypted, pass in the name of a created + populated Secret in the same Namespace
 ## as the pod. All secrets within this configmap will be mounted as environment variables,
