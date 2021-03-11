@@ -78,7 +78,7 @@ env:
   ##
   # DRONE_SECRET:
   ##
-  ## 
+  ##
   ## Vault related parameter
   ## For more information about Vault extension parameter, you can take a look here:
   ## https://github.com/drone/drone-vault
@@ -86,4 +86,3 @@ env:
   ## The Kubernetes namespace to retrieve secrets from.
   ##
   KUBERNETES_NAMESPACE: default
-
