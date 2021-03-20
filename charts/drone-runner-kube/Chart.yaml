@@ -6,7 +6,7 @@ description: The Drone Kubernetes runner launches builds in Kubernetes Jobs
 # type: application
 version: 0.1.6
 appVersion: 1.0.0
-kubeVersion: "^1.19.0-0"
+kubeVersion: "^1.13.0-0"
 home: https://kube-runner.docs.drone.io/
 icon: https://drone.io/apple-touch-icon.png
 keywords:
