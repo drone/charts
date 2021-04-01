@@ -1,0 +1,11 @@
+{{- if .Values.env.DRONE_DATABASE_HOST }}
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ include "drone.fullname" . }}-db
+  labels:
+    {{- include "drone.labels" . | nindent 4 }}
+spec:
+  type: ExternalName
+  externalName: {{ .Values.env.DRONE_DATABASE_HOST }}
+{{- end }}

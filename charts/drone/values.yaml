@@ -178,6 +178,10 @@ env:
   # DRONE_DATABASE_DRIVER:
   # DRONE_DATABASE_DATASOURCE:
 
+  ## If using a database outside of kubernetes set DRONE_DATABASE_HOST to create an ExternalName
+  ## The destination in DRONE_DATABASE_DATASOURCE will then be "{{ fullname }}-db"
+  # DRONE_DATABASE_HOST:
+
   ## If you are going to store build secrets in the Drone database, it is suggested that
   ## you set a database encryption secret. This must be set before any secrets are stored
   ## in the database.
