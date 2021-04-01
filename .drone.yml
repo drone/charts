@@ -3,17 +3,29 @@ type: docker
 name: default
 
 steps:
-- name: lint
+- name: pr lint
   image: quay.io/helmpack/chart-testing:v3.0.0-beta.1
   commands:
-  - apk add --update make
-  - make lint
+  - ct lint --check-version-increment=false
+  when:
+    event:
+    - pull_request
 
 - name: generate
   image: alpine/helm:3.0.3
   commands:
   - apk add --update make
   - make publish
+
+- name: push lint
+  image: quay.io/helmpack/chart-testing:v3.0.0-beta.1
+  commands:
+  - ct lint
+  when:
+    event:
+    - push
+    branch:
+    - master
 
 - name: push
   image: appleboy/drone-git-push
