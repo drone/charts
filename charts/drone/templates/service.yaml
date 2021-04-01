@@ -6,10 +6,21 @@ metadata:
     {{- include "drone.labels" . | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
+{{- if eq "LoadBalancer" .Values.service.type }}
+  loadBalancerIP: {{ .Values.service.loadBalancerIP }}
+  ports:
+  {{- range $key, $val := .Values.servicePorts }}
+    - port: {{ $val.port }}
+      targetPort: {{ $val.targetPort }}
+      protocol: {{ $val.protocol }}
+      name: {{ $key }}
+  {{- end }}
+{{- else }}
   ports:
     - port: {{ .Values.service.port }}
       targetPort: http
       protocol: TCP
       name: http
+{{- end }}
   selector:
     {{- include "drone.selectorLabels" . | nindent 4 }}
