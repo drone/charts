@@ -88,3 +88,8 @@ spec:
             {}
           {{- end -}}
         {{- end -}}
+{{- with .Values.hostAliases }}
+      hostAliases:
+{{ toYaml . | indent 8 }}
+    {{- end }}
+
