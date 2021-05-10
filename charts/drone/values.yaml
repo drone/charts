@@ -151,6 +151,13 @@ emptyDir:
 extraSecretNamesForEnvFrom: []
 # - my-drone-secrets
 
+## Allows you to add entries to the /etc/hosts file useful when DNS and other options are 
+## like in development not applicable 
+hostAliases: []
+#  - ip: "192.168.86.101"
+#    hostnames:
+#    - "gitlab.example.com"
+
 ## The keys within the "env" map are mounted as environment variables on the Drone server pod.
 ## See the full reference of Drone server environment variables here:
 ## Ref: https://docs.drone.io/installation/reference/
