@@ -42,7 +42,7 @@ spec:
           livenessProbe:
             httpGet:
               path: /
-              port: http
+              port: {{ .Values.containerPort }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           envFrom:
