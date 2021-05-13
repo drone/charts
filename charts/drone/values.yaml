@@ -13,6 +13,9 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+# Change containerPort to some custom value
+containerPort: 8080
+
 # Drone server does not interact with the Kubernetes API server
 automountServiceAccountToken: false
 

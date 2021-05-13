@@ -12,6 +12,7 @@
     "podAnnotations",
     "service",
     "ingress",
+    "containerPort",
     "resources",
     "nodeSelector",
     "tolerations",
@@ -69,6 +70,10 @@
     "podAnnotations": {
       "$id": "#/properties/podAnnotations",
       "type": "object"
+    },
+    "containerPort": {
+      "$id": "#/properties/containerPort",
+      "type": "integer"
     },
     "service": {
       "$id": "#/properties/service",

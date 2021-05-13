@@ -9,6 +9,8 @@ data:
     Rather than maintain a comprehensive ConfigMap, we map all sub-keys of the "env" value here.
     This allows for more flexibility and less Chart churn as Drone evolves.
   */}}
-{{- range $envKey, $envVal := .Values.env }}
+{{- $defaultEnvs := dict "DRONE_SERVER_PORT" (cat ":" .Values.containerPort) }}
+{{- $mergedValues := merge .Values.env $defaultEnvs }}
+{{- range $envKey, $envVal := $mergedValues }}
   {{ $envKey | upper }}: {{ $envVal | quote }}
 {{- end }}
