@@ -2,7 +2,7 @@
 
 [Drone](http://drone.io/) is a Continuous Integration platform built on container technology with native Kubernetes support.
 
-This Chart is for installing the [Kubernetes runner](https://kube-runner.docs.drone.io/) for Drone.
+This Chart is for installing the [Kubernetes runner](https://docs.drone.io/runner/kubernetes/overview/) for Drone.
 
 ## Installing Drone Kubernetes runner
 
