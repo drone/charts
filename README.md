@@ -42,6 +42,9 @@ Visit the [support forum](https://discourse.drone.io/) for support.
 
 For details on how to contribute changes or additions to this repository, see the [Contributor's guide](CONTRIBUTING.md).
 
+Please note that the charts within are supplied as a starting point. They are not intended to support every possible Kubernetes configurable. The maintainability of a chart decreases for every additional templated line. We suggest forking the charts if you find yourself needing non-trivial modifications.
+
+
 ## License
 
 This repository's contents are licensed under the 2-clause BSD license. See the included [LICENSE](LICENSE) file for a copy.
