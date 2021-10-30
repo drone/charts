@@ -1,6 +1,6 @@
 image:
   repository: drone/drone-runner-kube
-  tag: 1.0.0-beta.6
+  tag: 1.0.0-rc.2
   pullPolicy: IfNotPresent
 
 ## If you need to pull images from a private Docker image repository, pass in the name
@@ -55,6 +55,9 @@ ingress:
   #  - secretName: chart-example-tls
   #    hosts:
   #      - chart-example.local
+
+  ## set ingressClassName of ingress
+  # ingressClassName: nginx
 
 resources: {}
   # limits:
