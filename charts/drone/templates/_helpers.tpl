@@ -62,3 +62,12 @@ Create the name of the service account to use
     {{ default "default" .Values.serviceAccount.name }}
 {{- end -}}
 {{- end -}}
+
+{{/*
+TLS enabled via extraVolumes
+*/}}
+{{- define "drone.tlsEnabled" -}}
+  {{- if or (hasKey .Values.env "DRONE_TLS_AUTOCERT") (hasKey .Values.env "DRONE_TLS_CERT") -}}
+true
+  {{- end -}}
+{{- end -}}

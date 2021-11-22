@@ -40,6 +40,17 @@ service:
   type: ClusterIP
   port: 80
 
+## For a LoadBalancer service define the ports to use
+servicePorts: {}
+#  http:
+#    port: 80
+#    targetPort: 80
+#    protocol: TCP
+#  https:
+#    port: 443
+#    targetPort: 443
+#    protocol: TCP
+
 ingress:
   enabled: false
   annotations: {}
@@ -159,7 +170,7 @@ env:
   ## REQUIRED: Set the user-visible Drone hostname, sans protocol.
   ## Ref: https://docs.drone.io/installation/reference/drone-server-host/
   ##
-  DRONE_SERVER_HOST: ""
+  DRONE_SERVER_HOST: "chart-example.local"
   ## The protocol to pair with the value in DRONE_SERVER_HOST (http or https).
   ## Ref: https://docs.drone.io/installation/reference/drone-server-proto/
   ##

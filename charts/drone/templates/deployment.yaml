@@ -42,7 +42,12 @@ spec:
           livenessProbe:
             httpGet:
               path: /
+          {{- if (include "drone.tlsEnabled" .) }}
+              port: 443
+              scheme: HTTPS
+          {{- else }}
               port: http
+          {{- end }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
           envFrom:
