@@ -67,11 +67,7 @@ Create the name of the service account to use
 TLS enabled via extraVolumes
 */}}
 {{- define "drone.tlsEnabled" -}}
-  {{/* Iterate through each of the extraVolumes */}}
-  {{- range .Values.extraVolumes -}}
-    {{/* If a volume called certs exist TLS is enabled */}}
-    {{- if eq .name "certs" }}
+  {{- if or (hasKey .Values.env "DRONE_TLS_AUTOCERT") (hasKey .Values.env "DRONE_TLS_CERT") -}}
 true
-    {{- end -}}
   {{- end -}}
 {{- end -}}
