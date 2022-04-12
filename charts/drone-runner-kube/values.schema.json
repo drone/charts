@@ -148,6 +148,10 @@
       "$id": "#/properties/rbac",
       "type": "object"
     },
+    "serviceAccount": {
+      "$id": "#/properties/serviceAccount",
+      "type": "object"
+    },
     "extraVolumes": {
       "$id": "#/properties/extraVolumes",
       "type": "array"
