@@ -8,7 +8,10 @@ steps:
   commands:
   - apk add --update make
   - ct lint
-  - make lint
+# cloud.drone.io runners are using a version of docker prior to 20.10.0, so
+# this step currently fails due to this change in apline 3.14
+# https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.14.0#faccessat2
+#  - make lint
 
 - name: generate
   image: alpine/helm:3.0.3
