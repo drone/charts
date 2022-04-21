@@ -1,6 +1,6 @@
 image:
   repository: drone/drone
-  tag: 1.9.0
+  tag: 2.11.1
   pullPolicy: IfNotPresent
 
 ## If you need to pull images from a private Docker image repository, pass in the name
@@ -48,7 +48,8 @@ ingress:
   hosts:
     - host: chart-example.local
       paths:
-        - "/"
+        - path: "/*"
+          pathType: ImplementationSpecific
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
