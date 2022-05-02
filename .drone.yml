@@ -2,12 +2,20 @@ kind: pipeline
 type: docker
 name: default
 
+trigger:
+  branch:
+  - master
+
 steps:
 - name: lint
-  image: quay.io/helmpack/chart-testing:v3.0.0-beta.1
+  image: quay.io/helmpack/chart-testing:v3.5.0
   commands:
   - apk add --update make
-  - make lint
+  - ct lint
+# cloud.drone.io runners are using a version of docker prior to 20.10.0, so
+# this step currently fails due to this change in apline 3.14
+# https://wiki.alpinelinux.org/wiki/Release_Notes_for_Alpine_3.14.0#faccessat2
+#  - make lint
 
 - name: generate
   image: alpine/helm:3.0.3
