@@ -40,6 +40,11 @@ service:
   type: ClusterIP
   port: 80
 
+
+## If you'd like to create an ingress in front of the Drone server, you can enable it
+## here. Please refer to your service provider's documenatation for any configuration
+## that is specific to their ingress implementation.
+## Ref: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: false
   annotations: {}
@@ -48,8 +53,8 @@ ingress:
   hosts:
     - host: chart-example.local
       paths:
-        - path: "/*"
-          pathType: ImplementationSpecific
+        - path: /
+          pathType: Prefix
   tls: []
   #  - secretName: chart-example-tls
   #    hosts:
