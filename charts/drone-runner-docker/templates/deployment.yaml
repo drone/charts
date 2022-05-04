@@ -71,9 +71,6 @@ spec:
           readinessProbe:
             tcpSocket:
               port: tcp
-          envFrom:
-            - configMapRef:
-                name: {{ include "drone-runner-docker.fullname" . }}
           resources:
             {{- toYaml .Values.resources | nindent 12 }}
       {{- with .Values.nodeSelector }}
