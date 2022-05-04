@@ -78,6 +78,10 @@
         "port"
       ],
       "properties": {
+        "loadBalancerIP": {
+          "$id": "#/properties/service/properties/loadBalancerIP",
+          "type": "string"
+        },
         "type": {
           "$id": "#/properties/service/properties/type",
           "type": "string",
