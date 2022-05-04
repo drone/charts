@@ -7,4 +7,5 @@ This directory contains the charts that are published to the Drone Helm chart re
 A nonexhaustive overview of the charts:
 
 * [drone](drone/README.md) - Drone server
+* [drone-runner-docker](drone-runner-docker/README.md) - The Docker runner for Drone
 * [drone-runner-kube](drone-runner-kube/README.md) - The Kubernetes runner for Drone
