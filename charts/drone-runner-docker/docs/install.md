@@ -21,7 +21,6 @@ env:
   ## key via a separately provisioned secret (see extraSecretNamesForEnvFrom above).
   ## Ref: https://docs.drone.io/runner/docker/configuration/reference/drone-rpc-secret/
   ##
-  ##
   ## NOTE TO READER: Change this to match the DRONE_RPC_SECRET secret set in your drone server configs.
   DRONE_RPC_SECRET: xxxxxxxxxxxxx
 ``` 
