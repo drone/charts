@@ -1,0 +1,25 @@
+# TODO: Change this back to v2 once chart-releaser supports it.
+apiVersion: v1
+name: drone-runner-docker
+description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker (dind)
+# TODO: Un-comment once we move back to apiVersion: v2.
+# type: application
+version: 0.1.0-rc.1
+appVersion: "1.8.1"
+kubeVersion: "^1.13.0-0"
+home: https://docs.drone.io/runner/docker/overview/
+icon: https://drone.io/apple-touch-icon.png
+keywords:
+  - continuous-delivery
+  - continuous-deployment
+  - continuous-integration
+  - docker
+  - drone
+  - drone.io
+  - go
+sources:
+  - https://github.com/drone-runners/drone-runner-docker
+  - https://github.com/drone/charts
+maintainers:
+  - name: Drone
+    email: hello@drone.io
