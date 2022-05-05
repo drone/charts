@@ -34,6 +34,9 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "drone-runner-docker.labels" -}}
+{{- if .Release.Name -}}
+release: {{ .Release.Name | trunc 63 | trimSuffix "-" }}
+{{- end }}
 helm.sh/chart: {{ include "drone-runner-docker.chart" . }}
 {{ include "drone-runner-docker.selectorLabels" . }}
 {{- if .Chart.AppVersion }}
