@@ -35,8 +35,8 @@ Create chart name and version as used by the chart label.
 Common labels
 */}}
 {{- define "drone.labels" -}}
-{{- if .Release.Name }}
-release: {{- .Release.Name | trunc 63 | trimSuffix "-" -}}
+{{- if .Release.Name -}}
+release: {{ .Release.Name | trunc 63 | trimSuffix "-" }}
 {{- end }}
 helm.sh/chart: {{ include "drone.chart" . }}
 {{ include "drone.selectorLabels" . }}
