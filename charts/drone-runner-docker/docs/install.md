@@ -16,12 +16,13 @@ In order to install the chart, you'll need to pass in additional configuration. 
 
 ```yaml
 env:
-  ## REQUIRED: Set the secret secret token that the Docker runner and its runners will use
+  ## REQUIRED: Set the secret secret token that the Docker runner will use
   ## to authenticate. This is commented out in order to leave you the ability to set the
-  ## key via a separately provisioned secret (see existingSecretName above).
-  ## Ref: https://kube-runner.docs.drone.io/installation/reference/drone-rpc-secret/
+  ## key via a separately provisioned secret (see extraSecretNamesForEnvFrom above).
+  ## Ref: https://docs.drone.io/runner/docker/configuration/reference/drone-rpc-secret/
   ##
-  # NOTE TO READER: Change this to match the DRONE_RPC_SECRET secret set in your drone server configs. 
+  ##
+  ## NOTE TO READER: Change this to match the DRONE_RPC_SECRET secret set in your drone server configs.
   DRONE_RPC_SECRET: xxxxxxxxxxxxx
 ``` 
 
