@@ -2,6 +2,114 @@ apiVersion: v1
 entries:
   drone:
   - apiVersion: v1
+    appVersion: 2.11.1
+    created: "2022-05-05T17:53:59.103190485Z"
+    description: Drone is a self-service Continuous Delivery platform for busy development
+      teams
+    digest: 1d6f75a91d4536da1c5181c2398a8f4aa6037a62abc1c17a03a1bc8068d02d78
+    home: https://drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone
+    sources:
+    - https://github.com/drone/drone
+    - https://github.com/drone/helm
+    urls:
+    - https://charts.drone.io/drone-0.2.3.tgz
+    version: 0.2.3
+  - apiVersion: v1
+    appVersion: 2.11.1
+    created: "2022-05-05T13:26:52.669446372Z"
+    description: Drone is a self-service Continuous Delivery platform for busy development
+      teams
+    digest: 9f8fa056820b23c42ce1eb82dc173da0b6580087d5fd392ea12a5cb6edc4d3ac
+    home: https://drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone
+    sources:
+    - https://github.com/drone/drone
+    - https://github.com/drone/helm
+    urls:
+    - https://charts.drone.io/drone-0.2.2.tgz
+    version: 0.2.2
+  - apiVersion: v1
+    appVersion: 2.11.1
+    created: "2022-05-03T20:25:08.269599432Z"
+    description: Drone is a self-service Continuous Delivery platform for busy development
+      teams
+    digest: 4110c72059589fdaea517b50b863e25582c097c696840e23be22c4ca89522916
+    home: https://drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone
+    sources:
+    - https://github.com/drone/drone
+    - https://github.com/drone/helm
+    urls:
+    - https://charts.drone.io/drone-0.2.1.tgz
+    version: 0.2.1
+  - apiVersion: v1
+    appVersion: 1.9.0
+    created: "2022-05-02T19:07:56.930204702Z"
+    description: Drone is a self-service Continuous Delivery platform for busy development
+      teams
+    digest: e700db415a1106b4630a116fdc43f4920730b13c6121f702d16791bdd9501d69
+    home: https://drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone
+    sources:
+    - https://github.com/drone/drone
+    - https://github.com/drone/helm
+    urls:
+    - https://charts.drone.io/drone-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
     appVersion: 1.9.0
     created: "2021-07-27T09:31:36.886980027Z"
     description: Drone is a self-service Continuous Delivery platform for busy development
@@ -112,9 +220,9 @@ entries:
   drone-kubernetes-secrets:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2021-07-27T09:31:36.888929884Z"
+    created: "2022-05-05T17:53:59.103912706Z"
     description: A Kubernetes Secrets extension for Drone
-    digest: 289f75130d02fb0b91daf12bed47f04bd0f9d02f1f45cb5c673602779ffe2e86
+    digest: 8037d48c429850420844218ef921de15111d34284502d906c50e69ea03ad13cf
     home: https://github.com/drone/drone-kubernetes-secrets
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -162,12 +270,120 @@ entries:
     urls:
     - https://charts.drone.io/drone-kubernetes-secrets-0.1.0.tgz
     version: 0.1.0
+  drone-runner-docker:
+  - apiVersion: v1
+    appVersion: 1.8.1
+    created: "2022-05-05T17:53:59.106258024Z"
+    description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker
+      (dind)
+    digest: f760b52e26642fd1d770de325591249bba8b6d36599c71734d89a75b91c6d184
+    home: https://docs.drone.io/runner/docker/overview/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone-runner-docker
+    sources:
+    - https://github.com/drone-runners/drone-runner-docker
+    - https://github.com/drone/charts
+    urls:
+    - https://charts.drone.io/drone-runner-docker-0.1.0-rc.3.tgz
+    version: 0.1.0-rc.3
+  - apiVersion: v1
+    appVersion: 1.8.1
+    created: "2022-05-05T17:38:10.555533541Z"
+    description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker
+      (dind)
+    digest: d66cebce0b48991b75454d7bc7eb98a9c51e61c18c3031bed2675d6920663bbc
+    home: https://docs.drone.io/runner/docker/overview/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone-runner-docker
+    sources:
+    - https://github.com/drone-runners/drone-runner-docker
+    - https://github.com/drone/charts
+    urls:
+    - https://charts.drone.io/drone-runner-docker-0.1.0-rc.2.tgz
+    version: 0.1.0-rc.2
+  - apiVersion: v1
+    appVersion: 1.8.1
+    created: "2022-05-05T17:35:36.49317363Z"
+    description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker
+      (dind)
+    digest: 77862f14a4020fa7a55e202db1051cfb0bb3cdc073af30331d59c969ae3b0fa1
+    home: https://docs.drone.io/runner/docker/overview/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone-runner-docker
+    sources:
+    - https://github.com/drone-runners/drone-runner-docker
+    - https://github.com/drone/charts
+    urls:
+    - https://charts.drone.io/drone-runner-docker-0.1.0-rc.1.tgz
+    version: 0.1.0-rc.1
   drone-runner-kube:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2021-07-27T09:31:36.889825439Z"
+    created: "2022-05-05T17:53:59.10720618Z"
     description: The Drone Kubernetes runner launches builds in Kubernetes Jobs
-    digest: 46b36f97519d2de5f78315c3a34edd0f9a8da4de1811a09f6d1ca68d8b0ff095
+    digest: 7dd2cc7c54678734f4362b064b8757c629ee3be1c6965b368a5a1d2c1cc6e7d4
+    home: https://kube-runner.docs.drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone-runner-kube
+    sources:
+    - https://github.com/drone-runners/drone-runner-kube
+    - https://github.com/drone/helm
+    urls:
+    - https://charts.drone.io/drone-runner-kube-0.1.6.tgz
+    version: 0.1.6
+  - apiVersion: v1
+    appVersion: 1.0.0
+    created: "2022-05-02T19:51:53.488607337Z"
+    description: The Drone Kubernetes runner launches builds in Kubernetes Jobs
+    digest: 3a03c47b7248cf99b12e38729999d72623f09e4befdefd6d14430f732a42e5d4
     home: https://kube-runner.docs.drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -267,4 +483,4 @@ entries:
     urls:
     - https://charts.drone.io/drone-runner-kube-0.1.2.tgz
     version: 0.1.2
-generated: "2021-07-27T09:31:36.885775452Z"
+generated: "2022-05-05T17:53:59.10190312Z"

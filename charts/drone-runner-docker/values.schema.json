@@ -5,6 +5,8 @@
   "required": [
     "image",
     "imagePullSecrets",
+    "replicaCount",
+    "terminationGracePeriodSeconds",
     "nameOverride",
     "fullnameOverride",
     "podSecurityContext",
@@ -46,9 +48,42 @@
         }
       }
     },
+    "dind": {
+      "$id": "#/properties/dind",
+      "type": "object",
+      "required": [
+        "repository",
+        "tag",
+        "pullPolicy"
+      ],
+      "properties": {
+        "repository": {
+          "$id": "#/properties/dind/properties/repository",
+          "type": "string"
+        },
+        "tag": {
+          "$id": "#/properties/dind/properties/tag",
+          "type": "string"
+        },
+        "pullPolicy": {
+          "$id": "#/properties/dind/properties/pullPolicy",
+          "type": "string",
+          "enum": ["Always", "IfNotPresent", "Never"]
+        }
+      }
+    },
     "imagePullSecrets": {
       "$id": "#/properties/imagePullSecrets",
       "type": "array"
+    },
+    "replicaCount": {
+      "$id": "#/properties/replicaCount",
+      "type": "integer",
+      "minimum": 0
+    },
+    "terminationGracePeriodSeconds": {
+      "$id": "#/properties/terminationGracePeriodSeconds",
+      "type": "integer"
     },
     "nameOverride": {
       "$id": "#/properties/nameOverride",
@@ -78,10 +113,6 @@
         "port"
       ],
       "properties": {
-        "loadBalancerIP": {
-          "$id": "#/properties/service/properties/loadBalancerIP",
-          "type": "string"
-        },
         "type": {
           "$id": "#/properties/service/properties/type",
           "type": "string",
@@ -137,6 +168,14 @@
       "$id": "#/properties/affinity",
       "type": "object"
     },
+    "rbac": {
+      "$id": "#/properties/rbac",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "$id": "#/properties/serviceAccount",
+      "type": "object"
+    },
     "extraVolumes": {
       "$id": "#/properties/extraVolumes",
       "type": "array"
@@ -153,13 +192,13 @@
       "$id": "#/properties/env",
       "type": "object",
       "required": [
-        "DRONE_SERVER_HOST"
+        "DRONE_RPC_HOST"
       ],
       "properties": {
-        "DRONE_SERVER_HOST": {
-          "$id": "#/properties/env/properties/DRONE_SERVER_HOST",
+        "DRONE_RPC_HOST": {
+          "$id": "#/properties/env/properties/DRONE_RPC_HOST",
           "type": "string",
-          "minLength": 3
+          "minLength": 1
         },
         "DRONE_RPC_SECRET": {
           "$id": "#/properties/env/properties/DRONE_RPC_SECRET",
