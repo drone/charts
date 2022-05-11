@@ -1,6 +1,6 @@
 #repositoryID: needs to be filled after claim
 owners: # (optional, used to claim repository ownership)
   - name: jimsheldon
-    email: jim.sheldon@gmail.com
+    email: james.sheldon@harness.io
   - name: viceice
     email: michael.kriese@visualon.de
