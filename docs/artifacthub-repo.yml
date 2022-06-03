@@ -2,5 +2,3 @@ repositoryID: dcb230a5-25ce-49fd-bc8e-9996c9b14572
 owners: # (optional, used to claim repository ownership)
   - name: jimsheldon
     email: james.sheldon@harness.io
-  - name: viceice
-    email: michael.kriese@visualon.de
