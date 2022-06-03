@@ -3,10 +3,10 @@ entries:
   drone:
   - apiVersion: v1
     appVersion: 2.12.0
-    created: "2022-05-24T13:00:52.495018213Z"
+    created: "2022-06-03T14:20:52.804956474Z"
     description: Drone is a self-service Continuous Delivery platform for busy development
       teams
-    digest: e49d4b72045546b23b5ee09f976d07c78cbd8611869e0e9c60bc8285bb0d68e1
+    digest: 0aca71edec2e8d2349632d007da1d8552c5fc9e6fac09ab88ffab5f5804e5990
     home: https://drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -274,9 +274,9 @@ entries:
   drone-kubernetes-secrets:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2022-05-24T13:00:52.495694472Z"
+    created: "2022-06-03T14:20:52.805811611Z"
     description: A Kubernetes Secrets extension for Drone
-    digest: 8059d294723af229de1c03f12e16c6468032247873809b4d51c55d47548ad432
+    digest: 3b2aea9d6527bd6b9851ae33e6492ca6ad4528929f2480ac3ae912908363373b
     home: https://github.com/drone/drone-kubernetes-secrets
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -351,6 +351,33 @@ entries:
     - https://charts.drone.io/drone-kubernetes-secrets-0.1.0.tgz
     version: 0.1.0
   drone-runner-docker:
+  - apiVersion: v1
+    appVersion: 1.8.1
+    created: "2022-06-03T14:20:52.806939962Z"
+    description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker
+      (dind)
+    digest: 188a8db83dd79e28ab6d19804e85614e4a26ebf6b438169a0ec03a54f0240963
+    home: https://docs.drone.io/runner/docker/overview/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone-runner-docker
+    sources:
+    - https://github.com/drone-runners/drone-runner-docker
+    - https://github.com/drone/charts
+    urls:
+    - https://charts.drone.io/drone-runner-docker-0.1.0-rc.4.tgz
+    version: 0.1.0-rc.4
   - apiVersion: v1
     appVersion: 1.8.1
     created: "2022-05-24T13:00:52.497835197Z"
@@ -435,9 +462,9 @@ entries:
   drone-runner-kube:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2022-05-24T13:00:52.49882314Z"
+    created: "2022-06-03T14:20:52.807848179Z"
     description: The Drone Kubernetes runner launches builds in Kubernetes Jobs
-    digest: a7bf6438af833b9958de4bb066d866e1c3438fa9a50c7deb4b1e7fcad0575ff4
+    digest: b374d6b901a5c6251e24c4452f8875e046815f50a10bd6b1796a65e9487dbebe
     home: https://kube-runner.docs.drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -615,4 +642,4 @@ entries:
     urls:
     - https://charts.drone.io/drone-runner-kube-0.1.2.tgz
     version: 0.1.2
-generated: "2022-05-24T13:00:52.493751718Z"
+generated: "2022-06-03T14:20:52.802447779Z"
