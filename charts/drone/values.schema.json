@@ -42,7 +42,11 @@
         "pullPolicy": {
           "$id": "#/properties/image/properties/pullPolicy",
           "type": "string",
-          "enum": ["Always", "IfNotPresent", "Never"]
+          "enum": [
+            "Always",
+            "IfNotPresent",
+            "Never"
+          ]
         }
       }
     },
@@ -85,7 +89,12 @@
         "type": {
           "$id": "#/properties/service/properties/type",
           "type": "string",
-          "enum": ["ClusterIP", "ExternalName", "LoadBalancer", "NodePort"]
+          "enum": [
+            "ClusterIP",
+            "ExternalName",
+            "LoadBalancer",
+            "NodePort"
+          ]
         },
         "port": {
           "$id": "#/properties/service/properties/port",
@@ -123,6 +132,10 @@
     },
     "resources": {
       "$id": "#/properties/resources",
+      "type": "object"
+    },
+    "serviceAccount": {
+      "$id": "#/properties/serviceAccount",
       "type": "object"
     },
     "nodeSelector": {
