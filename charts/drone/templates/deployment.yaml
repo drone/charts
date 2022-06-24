@@ -27,6 +27,7 @@ spec:
         {{- toYaml . | nindent 8 }}
     {{- end }}
       automountServiceAccountToken: {{ .Values.automountServiceAccountToken }}
+      serviceAccountName: {{ include "drone.serviceAccountName" . }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:

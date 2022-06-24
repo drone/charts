@@ -13,6 +13,15 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+serviceAccount:
+  # Specifies whether a service account should be created
+  create: true
+  # Annotations to add to the service account
+  annotations: {}
+  # The name of the service account to use.
+  # If not set and create is true, a name is generated using the fullname template
+  name: ""
+
 # Drone server does not interact with the Kubernetes API server
 automountServiceAccountToken: false
 
@@ -39,7 +48,6 @@ updateStrategy: {}
 service:
   type: ClusterIP
   port: 80
-
 
 ## If you'd like to create an ingress in front of the Drone server, you can enable it
 ## here. Please refer to your service provider's documenatation for any configuration

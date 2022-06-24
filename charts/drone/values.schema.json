@@ -129,6 +129,10 @@
       "$id": "#/properties/nodeSelector",
       "type": "object"
     },
+    "serviceAccount": {
+      "$id": "#/properties/serviceAccount",
+      "type": "object"
+    },
     "tolerations": {
       "$id": "#/properties/tolerations",
       "type": "array"
