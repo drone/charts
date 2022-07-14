@@ -10,7 +10,31 @@ See the [drone chart installation guide](./docs/install.md).
 
 ## Configuring Drone server
 
-See [values.yaml](values.yaml) to see the Chart's default values. Refer to the [Drone server reference](https://docs.drone.io/installation/reference/) for a more complete list of options.
+### Secrets
+
+The drone server deployment can be used to leverage the Kubernetes secrets to configure values like `DRONE_RPC_SECRET` or other source code repository e.g. `DRONE_GITHUB_CLIENT_ID`, `DRONE_GITHUB_CLIENT_SECRET`. Refer to the [Drone server reference](https://docs.drone.io/installation/reference/) for a more complete list of options.
+
+Here is an example that creates the secrets from environment variables `DRONE_RPC_SECRET`, `DRONE_GITHUB_CLIENT_ID` and `DRONE_GITHUB_CLIENT_SECRET`,
+
+```shell
+kubectl create secret my-drone-secret generic \
+  --from-literal=DRONE_RPC_SECRET=$DRONE_RPC_SECRET \
+  --from-literal=DRONE_GITHUB_CLIENT_ID=$DRONE_GITHUB_CLIENT_ID \
+  --from-literal=DRONE_GITHUB_CLIENT_SECRET=$DRONE_GITHUB_CLIENT_SECRET 
+```
+
+### Helm Values
+
+Once you have created the secret then you can refer to the secret in `values.yaml` like,
+
+```yaml
+...
+extraSecretNamesForEnvFrom:
+  - my-drone-secret
+...
+```
+
+See [values.yaml](values.yaml) to see the Chart's default values.
 
 To adjust an existing Drone install's configuration:
 
