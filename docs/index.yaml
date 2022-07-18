@@ -30,10 +30,10 @@ entries:
     version: 0.5.0
   - apiVersion: v1
     appVersion: 2.12.1
-    created: "2022-07-18T17:08:52.278252849Z"
+    created: "2022-07-14T19:00:15.548764086Z"
     description: Drone is a self-service Continuous Delivery platform for busy development
       teams
-    digest: 6af638d038f5f2bd4bdc8531bd75217b064a34a33f49760fbdab090d48e44558
+    digest: a679c490a267e3cb84d89957cbac4667a0146310aad5db617bbc2da78fb2b93f
     home: https://drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
