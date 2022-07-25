@@ -63,6 +63,8 @@ spec:
               subPath: "{{ .Values.persistentVolume.subPath }}"
         {{- with .Values.extraVolumeMounts }}
             {{ toYaml . | nindent 12 }}
+        {{- if $.Values.extraContainers }}
+        {{- toYaml $.Values.extraContainers | nindent 8 }}
         {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:

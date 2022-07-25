@@ -18,6 +18,7 @@
     "affinity",
     "extraVolumes",
     "extraVolumeMounts",
+    "extraContainers",
     "extraSecretNamesForEnvFrom",
     "env"
   ],
@@ -147,6 +148,10 @@
     },
     "extraVolumeMounts": {
       "$id": "#/properties/extraVolumeMounts",
+      "type": "array"
+    },
+    "extraContainers": {
+      "$id": "#/properties/extraContainers",
       "type": "array"
     },
     "extraSecretNamesForEnvFrom": {
