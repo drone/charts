@@ -34,7 +34,10 @@ spec:
         - name: dind
           image: "{{ .Values.dind.repository }}:{{ .Values.dind.tag }}"
           imagePullPolicy: {{ .Values.dind.pullPolicy }}
-          command: ["dockerd", "--host", "tcp://127.0.0.1:2375"]
+          {{- with .Values.dindCommand }}
+          command:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           securityContext:
             privileged: true
           volumeMounts:
