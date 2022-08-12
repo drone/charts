@@ -53,6 +53,9 @@ securityContext: {}
   # runAsNonRoot: true
   # runAsUser: 1000
 
+## command passed to docker-in-docker container
+dindCommand: ["dockerd", "--host", "tcp://127.0.0.1:2375"]
+
 service:
   type: ClusterIP
   port: 80
