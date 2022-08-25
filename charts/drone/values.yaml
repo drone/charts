@@ -20,6 +20,34 @@ imagePullSecrets: []
 nameOverride: ""
 fullnameOverride: ""
 
+## Values used only for dind container
+##
+## if you uncomment this section, you must also pass these variables to the
+## drone server in the 'env' section below:
+##   DRONE_AGENTS_DISABLED: true
+##   DOCKER_HOST: "tcp://localhost:2375"
+dind: {}
+#  ## The official docker (dind) image, change tag to use a different version.
+#  ## ref: https://hub.docker.com/r/library/docker/tags/
+#  ##
+#  repository: docker
+#  tag: 20-dind
+#  pullPolicy: IfNotPresent
+#  command:
+#    - "dockerd"
+#  commandArgs:
+#    - "--host"
+#    - "tcp://localhost:2375"
+#  securityContext:
+#    privileged: true
+#  ## If you have declared extra volumes, mount them here, per the Pod Container's
+#  ## "volumeMounts" section of dind container
+#  ##
+#  extraVolumeMounts:
+#    - name: storage
+#      mountPath: /var/lib/docker
+#      subPath: docker
+
 serviceAccount:
   # Specifies whether a service account should be created
   create: true
