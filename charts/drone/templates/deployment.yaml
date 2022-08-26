@@ -31,7 +31,7 @@ spec:
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
       containers:
-        {{- with .Values.dind }}
+        {{- if .Values.dind }}
         - name: dind
           image: "{{ .Values.dind.repository }}:{{ .Values.dind.tag }}"
           imagePullPolicy: {{ .Values.dind.pullPolicy }}

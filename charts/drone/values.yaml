@@ -22,14 +22,14 @@ fullnameOverride: ""
 
 ## Values used only for dind container
 ##
+## docker-in-docker is used by the server when agents are disabled (such as when
+## using the OSS build, which does not support agents)
+##
 ## if you uncomment this section, you must also pass these variables to the
 ## drone server in the 'env' section below:
 ##   DRONE_AGENTS_DISABLED: true
 ##   DOCKER_HOST: "tcp://localhost:2375"
-dind: {}
-#  ## The official docker (dind) image, change tag to use a different version.
-#  ## ref: https://hub.docker.com/r/library/docker/tags/
-#  ##
+#dind:
 #  repository: docker
 #  tag: 20-dind
 #  pullPolicy: IfNotPresent
@@ -40,9 +40,6 @@ dind: {}
 #    - "tcp://localhost:2375"
 #  securityContext:
 #    privileged: true
-#  ## If you have declared extra volumes, mount them here, per the Pod Container's
-#  ## "volumeMounts" section of dind container
-#  ##
 #  extraVolumeMounts:
 #    - name: storage
 #      mountPath: /var/lib/docker
