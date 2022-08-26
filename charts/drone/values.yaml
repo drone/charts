@@ -29,21 +29,21 @@ fullnameOverride: ""
 ## drone server in the 'env' section below:
 ##   DRONE_AGENTS_DISABLED: true
 ##   DOCKER_HOST: "tcp://localhost:2375"
-#dind:
-#  repository: docker
-#  tag: 20-dind
-#  pullPolicy: IfNotPresent
-#  command:
-#    - "dockerd"
-#  commandArgs:
-#    - "--host"
-#    - "tcp://localhost:2375"
-#  securityContext:
-#    privileged: true
-#  extraVolumeMounts:
-#    - name: storage
-#      mountPath: /var/lib/docker
-#      subPath: docker
+# dind:
+#   repository: docker
+#   tag: 20-dind
+#   pullPolicy: IfNotPresent
+#   command:
+#     - "dockerd"
+#   commandArgs:
+#     - "--host"
+#     - "tcp://localhost:2375"
+#   securityContext:
+#     privileged: true
+#   extraVolumeMounts:
+#     - name: storage
+#       mountPath: /var/lib/docker
+#       subPath: docker
 
 serviceAccount:
   # Specifies whether a service account should be created
