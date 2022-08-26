@@ -22,13 +22,13 @@ fullnameOverride: ""
 
 ## Values used only for dind container
 ##
-## docker-in-docker is used by the server when agents are disabled (such as when
-## using the OSS build, which does not support agents)
+## docker-in-docker is used by the server when agents (runners) are disabled
 ##
 ## if you uncomment this section, you must also pass these variables to the
 ## drone server in the 'env' section below:
 ##   DRONE_AGENTS_DISABLED: true
 ##   DOCKER_HOST: "tcp://localhost:2375"
+##
 # dind:
 #   repository: docker
 #   tag: 20-dind
