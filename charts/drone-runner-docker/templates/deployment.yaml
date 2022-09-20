@@ -25,25 +25,61 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "drone-runner-docker.serviceAccountName" . }}
+      {{- with .Values.podSecurityContext }}
       securityContext:
         {{- toYaml .Values.podSecurityContext | nindent 8 }}
+      {{- end }}
+      {{- with .Values.hostAliases }}
+      hostAliases:
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
+      {{- with .Values.extraVolumes }}
       volumes:
-        - name: storage
-          emptyDir: {}
+        {{- toYaml . | nindent 8 }}
+      {{- end }}
       containers:
         - name: dind
           image: "{{ .Values.dind.repository }}:{{ .Values.dind.tag }}"
           imagePullPolicy: {{ .Values.dind.pullPolicy }}
-          command: ["dockerd", "--host", "tcp://127.0.0.1:2375"]
+          command: 
+          {{- range .Values.dind.command }}
+            - {{ . }}
+          {{- end }}
+          args:
+          {{- range .Values.dind.commandArgs }}
+            - {{ . }}
+          {{- end }}
+          {{- with .Values.dind.securityContext }}
           securityContext:
-            privileged: true
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          livenessProbe:
+            exec:
+              command:
+              - docker
+              - -H 
+              - tcp://localhost:2375
+              - images
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          readinessProbe:
+            exec:
+              command:
+              - docker
+              - -H 
+              - tcp://localhost:2375
+              - images
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          {{- with .Values.dind.extraVolumeMounts }}
           volumeMounts:
-            - name: storage
-              mountPath: /var/lib/docker
-              subPath: docker
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
         - name: {{ .Chart.Name }}
+          {{- with .Values.securityContext }}
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
+          {{- end }}
           image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
@@ -54,9 +90,8 @@ spec:
                 name: {{ . }}
           {{- end }}
           env:
-            # TODO: allow DOCKER_HOST AND DRONE_RUNNER_NAME to be overridden
             - name: DOCKER_HOST
-              value: tcp://localhost:2375
+              value: {{ .Values.env.DOCKER_HOST }}
             - name: DRONE_RUNNER_NAME
               valueFrom:
                 fieldRef:
@@ -71,8 +106,10 @@ spec:
           readinessProbe:
             tcpSocket:
               port: tcp
+          {{- with .Values.resources }}
           resources:
-            {{- toYaml .Values.resources | nindent 12 }}
+            {{- toYaml .Values.resources | nindent 10 }}
+          {{- end }}
       {{- with .Values.nodeSelector }}
       nodeSelector:
         {{- toYaml . | nindent 8 }}

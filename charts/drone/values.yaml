@@ -1,3 +1,10 @@
+# -- Mapping between IP and hostnames that will be injected as entries in the pod's hosts files
+# https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/
+hostAliases: []
+  # - ip: 10.20.30.40
+  #   hostnames:
+  #   - gitea-127.0.0.1.sslip.io
+
 image:
   repository: drone/drone
   tag: 2.12.1

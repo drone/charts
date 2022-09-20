@@ -28,7 +28,7 @@ env:
   DRONE_RPC_SECRET: randomly-generated-secret-here
 ``` 
 
-Copy these into a new file, which we'll call `drone-values.yaml`. Adjust the included defaults to reflect your environment. For the ful list of configurables, see the [configuration reference](https://docs.drone.io/installation/reference/).
+Copy these into a new file, which we'll call `drone-values.yaml`. Adjust the included defaults to reflect your environment. For the full list of configurables, see the [configuration reference](https://docs.drone.io/installation/reference/).
 
 Once we have a values file started with the essentials, the next step is to configure your git provider. The full list of supported providers may be found in the [Drone install guide](https://docs.drone.io/installation/overview/). Each provider uses different config parameters. They typically include an ID and a secret.
 
