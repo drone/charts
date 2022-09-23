@@ -12,6 +12,10 @@ This page is not intended to be a comprehensive guide to installing the Drone Do
 
 **Note: This guide assumes that Drone and the Docker runner are installed in the `drone` namespace. Feel free to change this as desired, but we suggest putting Drone server and the Docker runner in the same namespace as a start.**
 
+```bash
+kubectl create namespace drone
+```
+
 In order to install the chart, you'll need to pass in additional configuration. This configuration comes in the form of Helm values, which are key/value pairs. A minimal install of Drone server requires the following values:
 
 ```yaml
@@ -43,7 +47,7 @@ Once the `install` command is ran, your Kubernetes cluster will begin creating r
 $ kubectl --namespace drone get pods
 NAME                                 READY   STATUS    RESTARTS   AGE
 drone-76d6bb8968-2s5n9               1/1     Running   0          1h
-drone-runner-docker-696cf7b8d6-pds2h   1/1     Running   0          1m
+drone-runner-docker-696cf7b8d6-pds2h 1/1     Running   0          1m
 ``` 
 
 If the `drone-runner-*` pod's state is `Running`, the runner process successfully launched. Check the logs to make sure there are no warnings or errors:
