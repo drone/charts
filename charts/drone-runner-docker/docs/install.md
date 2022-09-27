@@ -12,6 +12,12 @@ This page is not intended to be a comprehensive guide to installing the Drone Do
 
 **Note: This guide assumes that Drone and the Docker runner are installed in the `drone` namespace. Feel free to change this as desired, but we suggest putting Drone server and the Docker runner in the same namespace as a start.**
 
+The following command will create a new namespace called `drone`:
+
+```bash
+kubectl create namespace drone
+```
+
 In order to install the chart, you'll need to pass in additional configuration. This configuration comes in the form of Helm values, which are key/value pairs. A minimal install of Drone server requires the following values:
 
 ```yaml
@@ -23,16 +29,16 @@ env:
   ##
   ## NOTE TO READER: Change this to match the DRONE_RPC_SECRET secret set in your drone server configs.
   DRONE_RPC_SECRET: xxxxxxxxxxxxx
-``` 
+```
 
-Copy these into a new file, which we'll call `drone-runner-docker-values.yaml`. Adjust the included defaults to reflect your environment. For the ful list of configurables, see the [configuration reference](https://docs.drone.io/runner/docker/configuration/). 
+Copy these into a new file, which we'll call `drone-runner-docker-values.yaml`. Adjust the included defaults to reflect your environment. For the ful list of configurables, see the [configuration reference](https://docs.drone.io/runner/docker/configuration/).
 
 ## Run the installation
 
 Run `helm install` with your values provided:
 
 ```console
-$ helm install --namespace drone drone-runner-docker drone/drone-runner-docker -f drone-runner-docker-values.yaml
+helm install --namespace drone drone-runner-docker drone/drone-runner-docker -f drone-runner-docker-values.yaml
 ```
 
 To break down the above, this command means: "install the `drone/drone-runner-docker` chart as a Helm release named `drone-runner-docker` in the `drone` namespace. The `drone-runner-docker-values.yaml` file will be used for configuring Drone." See `helm install --help` for a full list of parameters and flags.
@@ -43,8 +49,8 @@ Once the `install` command is ran, your Kubernetes cluster will begin creating r
 $ kubectl --namespace drone get pods
 NAME                                 READY   STATUS    RESTARTS   AGE
 drone-76d6bb8968-2s5n9               1/1     Running   0          1h
-drone-runner-docker-696cf7b8d6-pds2h   1/1     Running   0          1m
-``` 
+drone-runner-docker-696cf7b8d6-pds2h 1/1     Running   0          1m
+```
 
 If the `drone-runner-*` pod's state is `Running`, the runner process successfully launched. Check the logs to make sure there are no warnings or errors:
 
@@ -64,6 +70,6 @@ If you see the "starting the server" text above without error, the Drone Docker 
 
 Now that Drone server and the Drone Docker runner are installed, you are ready to begin submitting CI builds. Refer to the [Docker runner documentation](https://docs.drone.io/pipeline/docker/overview/) for more information on how to proceed.
 
-## Help! 
+## Help
 
 If you have questions or have encountered issues, visit the [Drone community site](https://community.harness.io/c/drone/14) to share.
