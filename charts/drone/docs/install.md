@@ -117,7 +117,7 @@ These topics are outside the scope of this guide, but see the chart's [values.ya
 
 ## Next steps
 
-Now that you have Drone server running, you'll need to install the Kubernetes runner before CI jobs will begin executing. Continue by reading the [drone-kube-runner README.md](../../drone-runner-kube/README.md) and installation instructions.
+Now that you have Drone server running, you'll need to install the Docker runner before CI jobs will begin executing. Continue by reading the [drone-runner-docker README.md](../../drone-runner-docker/README.md) and installation instructions.
 
 ## Help! 
 
