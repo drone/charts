@@ -5,7 +5,6 @@ This page will guide you through using the `drone-kubernetes-secrets` Helm chart
 **Note: Before beginning installation, you should have functioning deploys of Drone server and the Kubernetes runner. Refer to the their respective charts if needed:**
 
 * [drone](../../drone/README.md)
-* [drone-runner-kube](../../drone-runner-kube/README.md)
 
 ## Configuration (values)
 
@@ -53,7 +52,6 @@ Once the `install` command is ran, your Kubernetes cluster will begin creating r
 $ kubectl --namespace drone get pods
 NAME                                        READY   STATUS    RESTARTS   AGE
 drone-76d6bb8968-2s5n9                      1/1     Running   0          1h
-drone-runner-kube-696cf7b8d6-pds2h          1/1     Running   0          10m
 drone-kubernetes-secrets-547799b4db-c58wv   1/1     Running   0          1m
 ```
 
