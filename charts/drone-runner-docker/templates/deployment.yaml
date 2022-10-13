@@ -75,6 +75,24 @@ spec:
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
+        {{- if $.Values.gc.enabled }}
+        - name: gc
+          image: "{{ .Values.gc.repository }}:{{ .Values.gc.tag }}"
+          imagePullPolicy: {{ .Values.gc.pullPolicy }}
+          {{- with .Values.gc.securityContext }}
+          securityContext:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
+          env:
+            - name: DOCKER_HOST
+              value: {{ .Values.env.DOCKER_HOST }}
+          {{- if $.Values.gc.env }}
+            {{- range $key, $value := $.Values.gc.env }}
+            - name: {{ $key }}
+              value: {{ $value | quote }}
+            {{- end }}
+          {{- end }}
+        {{- end }}
         - name: {{ .Chart.Name }}
           {{- with .Values.securityContext }}
           securityContext:

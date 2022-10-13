@@ -54,6 +54,26 @@ dind:
       mountPath: /var/lib/docker
       subPath: docker
 
+## Values used only for the Drone Garbage Collector container
+gc:
+  enabled: true
+  ## The official Drone Garbage collector image, change tag to use a different version.
+  ## ref: https://hub.docker.com/r/drone/gc/tags
+  ##
+  repository: drone/gc
+  tag: 1.0.0
+  pullPolicy: IfNotPresent
+  securityContext:
+    {}
+  env:
+    GC_DEBUG: false
+    GC_DEBUG_COLOR: "false"
+    GC_DEBUG_PRETTY: "false"
+    GC_IGNORE_IMAGES: ""
+    GC_IGNORE_CONTAINERS: ""
+    GC_INTERVAL: "5m"
+    GC_CACHE: "5gb"
+
 imagePullSecrets: []
 
 ## When the runner receives a SIGTERM/SIGINT (config update, upgrade, etc), it will wait until
