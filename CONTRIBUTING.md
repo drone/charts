@@ -22,4 +22,4 @@ Contributors must follow the [Drone community code of conduct](CODE_OF_CONDUCT.m
 
 * Commit(s) should be prefixed by the name of the chart that has been added or modified.
 * `helm lint` must pass for all charts.
-* New charts must include a README.md. See [drone-runner-kube](charts/drone-runner-kube/README.md) for an example.  
+* New charts must include a README.md. See [drone-runner-docker](charts/drone-runner-docker/README.md) for an example.  
