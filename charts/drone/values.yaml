@@ -104,6 +104,9 @@ extraVolumes: []
 ## "volumeMounts" section.
 ##
 extraVolumeMounts: []
+## If you would like to add additional containers to the deployment, declare them here.
+##
+extraContainers: []
 
 persistentVolume:
   ## If you are using SQLite as your DB for Drone, it is recommended to enable persistence. If
