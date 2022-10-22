@@ -178,6 +178,10 @@ emptyDir:
 extraSecretNamesForEnvFrom: []
 # - my-drone-secrets
 
+## If you'd like to provide environment variables directly to the deployment.
+## This way is needed to compose env variables.
+extraEnv: []
+
 ## The keys within the "env" map are mounted as environment variables on the Drone server pod.
 ## See the full reference of Drone server environment variables here:
 ## Ref: https://docs.drone.io/installation/reference/
