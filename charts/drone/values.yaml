@@ -1,3 +1,10 @@
+# -- Mapping between IP and hostnames that will be injected as entries in the pod's hosts files
+# https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/
+hostAliases: []
+  # - ip: 10.20.30.40
+  #   hostnames:
+  #   - gitea-127.0.0.1.sslip.io
+
 image:
   repository: drone/drone
   tag: 2.12.1
@@ -57,6 +64,7 @@ service:
 ## Ref: https://kubernetes.io/docs/concepts/services-networking/ingress/
 ingress:
   enabled: false
+  className: ""
   annotations: {}
     # kubernetes.io/ingress.class: nginx
     # kubernetes.io/tls-acme: "true"
@@ -96,6 +104,9 @@ extraVolumes: []
 ## "volumeMounts" section.
 ##
 extraVolumeMounts: []
+## If you would like to add additional containers to the deployment, declare them here.
+##
+extraContainers: []
 
 persistentVolume:
   ## If you are using SQLite as your DB for Drone, it is recommended to enable persistence. If

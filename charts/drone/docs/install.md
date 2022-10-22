@@ -28,7 +28,7 @@ env:
   DRONE_RPC_SECRET: randomly-generated-secret-here
 ``` 
 
-Copy these into a new file, which we'll call `drone-values.yaml`. Adjust the included defaults to reflect your environment. For the ful list of configurables, see the [configuration reference](https://docs.drone.io/installation/reference/).
+Copy these into a new file, which we'll call `drone-values.yaml`. Adjust the included defaults to reflect your environment. For the full list of configurables, see the [configuration reference](https://docs.drone.io/installation/reference/).
 
 Once we have a values file started with the essentials, the next step is to configure your git provider. The full list of supported providers may be found in the [Drone install guide](https://docs.drone.io/installation/overview/). Each provider uses different config parameters. They typically include an ID and a secret.
 
@@ -117,7 +117,7 @@ These topics are outside the scope of this guide, but see the chart's [values.ya
 
 ## Next steps
 
-Now that you have Drone server running, you'll need to install the Kubernetes runner before CI jobs will begin executing. Continue by reading the [drone-kube-runner README.md](../../drone-runner-kube/README.md) and installation instructions.
+Now that you have Drone server running, you'll need to install the Docker runner before CI jobs will begin executing. Continue by reading the [drone-runner-docker README.md](../../drone-runner-docker/README.md) and installation instructions.
 
 ## Help! 
 

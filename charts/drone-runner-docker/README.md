@@ -1,6 +1,6 @@
 # Drone Docker runner
 
-[Drone](http://drone.io/) is a Continuous Integration platform built on container technology with native Kubernetes support.
+[Drone](http://drone.io/) is a Continuous Integration platform built on container technology.
 
 This Chart is for installing the [Docker runner](https://docs.drone.io/runner/docker/) for Drone.
 
@@ -11,6 +11,8 @@ See the [drone-runner-docker chart installation guide](./docs/install.md).
 ## Configuring Drone Docker runner
 
 See [values.yaml](values.yaml) to see the Chart's default values. Refer to the [Docker runner reference](https://docs.drone.io/runner/docker/configuration/reference/) for a more complete list of options.
+
+:information_source: In addition to the Drone Docker runner container, this chart runs [Docker-in-Docker](https://hub.docker.com/_/docker) (to run Docker containers in pipelines) and [Drone GC](https://github.com/drone/drone-gc) (for automatically pruning Docker images) containers within the pod. 
 
 To adjust an existing Drone install's configuration:
 
