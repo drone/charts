@@ -30,7 +30,7 @@ spec:
         - name: server
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           ports:
             - name: http
