@@ -6,6 +6,7 @@ hostAliases: []
   #   - gitea-127.0.0.1.sslip.io
 
 image:
+  registry: docker.io
   repository: drone/drone
   tag: 2.12.1
   pullPolicy: IfNotPresent

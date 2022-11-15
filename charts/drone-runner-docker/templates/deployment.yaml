@@ -39,7 +39,7 @@ spec:
       {{- end }}
       containers:
         - name: dind
-          image: "{{ .Values.dind.repository }}:{{ .Values.dind.tag }}"
+          image: "{{ .Values.dind.registry }}/{{ .Values.dind.repository }}:{{ .Values.dind.tag }}"
           imagePullPolicy: {{ .Values.dind.pullPolicy }}
           command: 
           {{- range .Values.dind.command }}
@@ -77,7 +77,7 @@ spec:
           {{- end }}
         {{- if $.Values.gc.enabled }}
         - name: gc
-          image: "{{ .Values.gc.repository }}:{{ .Values.gc.tag }}"
+          image: "{{ .Values.gc.registry }}/{{ .Values.gc.repository }}:{{ .Values.gc.tag }}"
           imagePullPolicy: {{ .Values.gc.pullPolicy }}
           {{- with .Values.gc.securityContext }}
           securityContext:
@@ -98,7 +98,7 @@ spec:
           securityContext:
             {{- toYaml .Values.securityContext | nindent 12 }}
           {{- end }}
-          image: "{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
+          image: "{{ .Values.image.registry }}/{{ .Values.image.repository }}:{{ .Values.image.tag | default .Chart.AppVersion }}"
           imagePullPolicy: {{ .Values.image.pullPolicy }}
           envFrom:
             - configMapRef:
