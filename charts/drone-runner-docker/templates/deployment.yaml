@@ -71,6 +71,10 @@ spec:
               - images
             initialDelaySeconds: 5
             periodSeconds: 5
+          {{- with .Values.dind.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
+          {{- end }}
           {{- with .Values.dind.extraVolumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
@@ -91,6 +95,10 @@ spec:
             - name: {{ $key }}
               value: {{ $value | quote }}
             {{- end }}
+          {{- end }}
+          {{- with .Values.gc.resources }}
+          resources:
+            {{- toYaml . | nindent 12 }}
           {{- end }}
         {{- end }}
         - name: {{ .Chart.Name }}
