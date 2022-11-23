@@ -18,13 +18,28 @@ The following command will create a new namespace called `drone`:
 kubectl create namespace drone
 ```
 
+In order to install the chart, you'll need to pass in additional configuration. This configuration comes in the form of Helm values, which are key/value pairs. A minimal install of Drone server requires the following values:
+
+```yaml
+env:
+  ## REQUIRED: Set the secret secret token that the Docker runner will use
+  ## to authenticate. This is commented out in order to leave you the ability to set the
+  ## key via a separately provisioned secret (see extraSecretNamesForEnvFrom above).
+  ## Ref: https://docs.drone.io/runner/docker/configuration/reference/drone-rpc-secret/
+  ##
+  ## NOTE TO READER: Change this to match the DRONE_RPC_SECRET secret set in your drone server configs.
+  DRONE_RPC_SECRET: xxxxxxxxxxxxx
+```
+
+Copy these into a new file, which we'll call `drone-runner-docker-values.yaml`. Adjust the included defaults to reflect your environment. For the ful list of configurables, see the [configuration reference](https://docs.drone.io/runner/docker/configuration/).
+
 ### Docker-in-Docker MTU
 
 The Docker-in-Docker (dind) sidecar creates its own temporary networks as it executes Drone Docker pipelines. **The MTU of these networks must be smaller than the outer networking layer(s).** For more background, see this [blog post](https://blog.dustinrue.com/2020/08/fixing-dind-builds-that-stall-when-using-gitlab-and-kubernetes/).
 
 You should retrieve the MTU value of your Kubernetes cluster networking layer. **If it is smaller than 1500 (the default value for dind), you will need to pass some extra parameters.**
 
-Pass `--mtu` in the `dind.commandArgs` section of your `values.yaml` file:
+Pass `--mtu` in the `dind.commandArgs` section of your `drone-runner-docker-values.yaml` file:
 
 ```yaml
 dind:
@@ -36,7 +51,7 @@ dind:
 
 Replace `12345` with your appropriate MTU value.
 
-To ensure that the temporary Docker networks created by the runner also have the appropriate value, add `DRONE_RUNNER_NETWORK_OPTS` to the `env` section of your `values.yaml` file:
+To ensure that the temporary Docker networks created by the runner also have the appropriate value, add `DRONE_RUNNER_NETWORK_OPTS` to the `env` section of your `drone-runner-docker-values.yaml` file:
 
 ```yaml
 env:
@@ -62,21 +77,6 @@ steps:
 ```
 
 Replace `12345` with your appropriate MTU value.
-
-In order to install the chart, you'll need to pass in additional configuration. This configuration comes in the form of Helm values, which are key/value pairs. A minimal install of Drone server requires the following values:
-
-```yaml
-env:
-  ## REQUIRED: Set the secret secret token that the Docker runner will use
-  ## to authenticate. This is commented out in order to leave you the ability to set the
-  ## key via a separately provisioned secret (see extraSecretNamesForEnvFrom above).
-  ## Ref: https://docs.drone.io/runner/docker/configuration/reference/drone-rpc-secret/
-  ##
-  ## NOTE TO READER: Change this to match the DRONE_RPC_SECRET secret set in your drone server configs.
-  DRONE_RPC_SECRET: xxxxxxxxxxxxx
-```
-
-Copy these into a new file, which we'll call `drone-runner-docker-values.yaml`. Adjust the included defaults to reflect your environment. For the ful list of configurables, see the [configuration reference](https://docs.drone.io/runner/docker/configuration/).
 
 ## Run the installation
 
