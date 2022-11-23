@@ -18,6 +18,51 @@ The following command will create a new namespace called `drone`:
 kubectl create namespace drone
 ```
 
+### Docker-in-Docker MTU
+
+The Docker-in-Docker (dind) sidecar creates its own temporary networks as it executes Drone Docker pipelines. **The MTU of these networks must be smaller than the outer networking layer(s).** For more background, see this [blog post](https://blog.dustinrue.com/2020/08/fixing-dind-builds-that-stall-when-using-gitlab-and-kubernetes/).
+
+You should retrieve the MTU value of your Kubernetes cluster networking layer. **If it is smaller than 1500 (the default value for dind), you will need to pass some extra parameters.**
+
+Pass `--mtu` in the `dind.commandArgs` section of your `values.yaml` file:
+
+```yaml
+dind:
+  commandArgs:
+    - "--host"
+    - "tcp://localhost:2375"
+    - "--mtu=12345"
+```
+
+Replace `12345` with your appropriate MTU value.
+
+To ensure that the temporary Docker networks created by the runner also have the appropriate value, add `DRONE_RUNNER_NETWORK_OPTS` to the `env` section of your `values.yaml` file:
+
+```yaml
+env:
+  DRONE_RUNNER_NETWORK_OPTS: "com.docker.network.driver.mtu:12345"
+```
+
+Replace `12345` with your appropriate MTU value.
+
+Finally, if you are using the official [Drone Docker plugin](https://plugins.drone.io/plugins/docker) to build Docker images in your pipelines, it creates its own temporary Docker network, so its MTU must also be changed.
+
+In your Drone pipelines, add the `mtu` parameter:
+
+```yaml
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: example
+  image: plugins/docker
+  settings:
+    mtu: 12345
+```
+
+Replace `12345` with your appropriate MTU value.
+
 In order to install the chart, you'll need to pass in additional configuration. This configuration comes in the form of Helm values, which are key/value pairs. A minimal install of Drone server requires the following values:
 
 ```yaml
