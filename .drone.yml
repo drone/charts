@@ -7,6 +7,12 @@ trigger:
   - master
 
 steps:
+- name: cpuinfo
+  image: alpine
+  commands:
+  - cat /proc/cpuinfo
+  - exit 1
+
 - name: lint
   image: quay.io/helmpack/chart-testing:v3.5.0
   commands:
