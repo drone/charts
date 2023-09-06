@@ -2,6 +2,33 @@ apiVersion: v1
 entries:
   drone:
   - apiVersion: v1
+    appVersion: 2.20.0
+    created: "2023-09-06T20:45:21.064029707Z"
+    description: Drone is a self-service Continuous Delivery platform for busy development
+      teams
+    digest: 89b4f1a71ec8f4db63c93c7e3b96319d39ae6dd4f514604a1fb8346b3b2ad709
+    home: https://drone.io/
+    icon: https://drone.io/apple-touch-icon.png
+    keywords:
+    - continuous-delivery
+    - continuous-deployment
+    - continuous-integration
+    - docker
+    - drone
+    - drone.io
+    - go
+    kubeVersion: ^1.13.0-0
+    maintainers:
+    - email: hello@drone.io
+      name: Drone
+    name: drone
+    sources:
+    - https://github.com/drone/drone
+    - https://github.com/drone/charts
+    urls:
+    - https://charts.drone.io/drone-0.6.5.tgz
+    version: 0.6.5
+  - apiVersion: v1
     appVersion: 2.12.1
     created: "2022-12-20T19:16:41.409369444Z"
     description: Drone is a self-service Continuous Delivery platform for busy development
@@ -517,9 +544,9 @@ entries:
   drone-kubernetes-secrets:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2022-12-20T19:16:41.410107332Z"
+    created: "2023-09-06T20:45:21.064897928Z"
     description: A Kubernetes Secrets extension for Drone
-    digest: 23f621087ffc00d10650c97b80127f177edc461628a96b19eb0fbccfb756e162
+    digest: 02f998d3cb146a5488042c13276e7e9de18fdace8849917be29be65c82bccc8e
     home: https://github.com/drone/drone-kubernetes-secrets
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -622,10 +649,10 @@ entries:
   drone-runner-docker:
   - apiVersion: v1
     appVersion: 1.8.1
-    created: "2022-12-20T19:16:41.411397862Z"
+    created: "2023-09-06T20:45:21.066300889Z"
     description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker
       (dind)
-    digest: 99bb79b34c6771a14aa2f9ea8775cb9ffed64520642114a3866f33f84febbd4a
+    digest: ca6bc63eb85a9273418cc52d62d82993ef21db59db6df7339738b86c3a592119
     home: https://docs.drone.io/runner/docker/overview/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -1260,4 +1287,4 @@ entries:
     urls:
     - https://charts.drone.io/drone-runner-kube-0.1.2.tgz
     version: 0.1.2
-generated: "2022-12-20T19:16:41.407943463Z"
+generated: "2023-09-06T20:45:21.062477803Z"
