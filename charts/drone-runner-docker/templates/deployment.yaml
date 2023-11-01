@@ -71,10 +71,13 @@ spec:
               - images
             initialDelaySeconds: 5
             periodSeconds: 5
-          {{- with .Values.dind.resources }}
           resources:
-            {{- toYaml . | nindent 12 }}
-          {{- end }}
+            limits:
+              cpu: {{ .Values.class.cpu }}
+              memory: {{ .Values.class.memory }}
+            requests:
+              cpu: {{ .Values.class.cpu }}
+              memory: {{ .Values.class.memory }}
           {{- with .Values.dind.extraVolumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
@@ -122,10 +125,6 @@ spec:
           env:
             - name: DOCKER_HOST
               value: {{ .Values.env.DOCKER_HOST }}
-            - name: DRONE_RUNNER_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
           ports:
             - name: tcp
               containerPort: 3000
@@ -144,12 +143,18 @@ spec:
       nodeSelector:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      {{- with .Values.affinity }}
       affinity:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
-      {{- with .Values.tolerations }}
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: drone.io/class
+                operator: In
+                values:
+                - {{ .Values.class.type }}
       tolerations:
-        {{- toYaml . | nindent 8 }}
-      {{- end }}
+        - key: drone.io/class
+          operator: Equal
+          value: {{ .Values.class.type }}
+          effect: NoSchedule
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}

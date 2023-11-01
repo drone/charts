@@ -12,3 +12,11 @@ data:
 {{- range $envKey, $envVal := .Values.env }}
   {{ $envKey | upper }}: {{ $envVal | quote }}
 {{- end }}
+  DRONE_RUNNER_PRIVILEGED_IMAGES: {{ .Values.runner.privilegedImages | quote }}
+  DRONE_RUNNER_CAPACITY: {{ .Values.runner.capacity | quote }}
+  DRONE_RUNNER_LABELS: "type:kubernetes,env:{{.Values.environment}},class:{{.Values.class.name}}"
+  DRONE_RUNNER_NAME: {{ .Values.runner.name | quote }}
+  DRONE_RPC_PROTO: {{ .Values.rpc.proto | quote  }}
+  DRONE_RPC_HOST: {{ .Values.rpc.host | quote  }}
+  DRONE_SECRET_PLUGIN_ENDPOINT: {{ .Values.plugins.secret.endpoint| quote  }}
+  DRONE_REGISTRY_PLUGIN_ENDPOINT: {{ .Values.plugins.registry.endpoint| quote  }}
