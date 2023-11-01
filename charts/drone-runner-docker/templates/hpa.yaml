@@ -33,4 +33,11 @@ spec:
           averageUtilization: {{ .Values.autoscaling.targetMemoryUtilizationPercentage }}
           type: Utilization
     {{- end }}
+  behavior:
+    scaleDown:
+      stabilizationWindowSeconds: {{ .Values.autoscaling.stabilizationWindowSeconds}}
+      policies:
+        - type: Pods
+          value: 1
+          periodSeconds: {{ .Values.autoscaling.periodSeconds}}
 {{- end }}

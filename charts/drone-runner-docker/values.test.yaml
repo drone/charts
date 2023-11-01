@@ -100,7 +100,7 @@ fullnameOverride: ""
 
 serviceAccount:
   # Specifies whether a service account should be created
-  create: false
+  create: true
   # Annotations to add to the service account
   annotations: {}
   # The name of the service account to use.
@@ -192,6 +192,7 @@ env:
   ## anyways (unless we want to use access keys.)
   DRONE_RUNNER_VOLUMES: /var/run/secrets/eks.amazonaws.com/serviceaccount/token:/var/run/secrets/eks.amazonaws.com/serviceaccount/token
 
+  ## Our defaults
   DRONE_SERVICE_ACCOUNT_DEFAULT: drone-sa
 
   DRONE_TRACE: true
@@ -206,24 +207,24 @@ class:
   # provided by karpenter
   type: spot
   # used for naming and node tags, etc
-  name: spot
+  name: spot-test
   cpu: 2100m
   memory: 2.5gi
 
 runner:
-  name: drone-runner-spot
+  name: spot-test
   capacity: 1
   privilegedImages: "076263846157.dkr.ecr.us-east-1.amazonaws.com/drone-plugin/ecr, 710267309417.dkr.ecr.us-east-1.amazonaws.com/builder/dnd"
 
-environment: ""
+environment: staging
 
 rpc:
-  host: ""
-  proto: ""
+  host: drone
+  proto: http
 
 plugins:
   secret:
-    endpoint: ""
+    endpoint: http://drone-plugins:3001
   registry:
-    endpoint: ""
+    endpoint: http://drone-plugins:3002
 
