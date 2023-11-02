@@ -4,7 +4,7 @@ name: drone-runner-docker
 description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker (dind)
 # TODO: Un-comment once we move back to apiVersion: v2.
 # type: application
-version: 0.6.1
+version: 0.6.2
 appVersion: "1.8.1"
 kubeVersion: "^1.13.0-0"
 home: https://docs.drone.io/runner/docker/overview/

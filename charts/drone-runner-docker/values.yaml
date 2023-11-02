@@ -67,6 +67,7 @@ dind:
     # requests:
     #   cpu: 100m
     #   memory: 128Mi
+  gracefulShutdownRetryPeriod: 60
 
 ## Values used only for the Drone Garbage Collector container
 gc:
