@@ -212,7 +212,6 @@ class:
   memory: 2.5gi
 
 runner:
-  name: spot-test
   capacity: 1
   privilegedImages: "076263846157.dkr.ecr.us-east-1.amazonaws.com/drone-plugin/ecr, 710267309417.dkr.ecr.us-east-1.amazonaws.com/builder/dnd"
 
@@ -227,4 +226,3 @@ plugins:
     endpoint: http://drone-plugins:3001
   registry:
     endpoint: http://drone-plugins:3002
-

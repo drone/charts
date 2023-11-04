@@ -93,10 +93,6 @@ spec:
           env:
             - name: DOCKER_HOST
               value: {{ .Values.env.DOCKER_HOST }}
-            - name: DRONE_RUNNER_NAME
-              valueFrom:
-                fieldRef:
-                  fieldPath: metadata.name
           {{- if $.Values.gc.env }}
             {{- range $key, $value := $.Values.gc.env }}
             - name: {{ $key }}
@@ -129,6 +125,10 @@ spec:
           env:
             - name: DOCKER_HOST
               value: {{ .Values.env.DOCKER_HOST }}
+            - name: DRONE_RUNNER_NAME
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.name
           ports:
             - name: tcp
               containerPort: 3000
