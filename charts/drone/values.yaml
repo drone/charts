@@ -179,6 +179,11 @@ emptyDir:
 extraSecretNamesForEnvFrom: []
 # - my-drone-secrets
 
+# The port for the Drone web server.  Set this to a high port such as 8080 if a
+# custom securityContext (either specified above or in a PodSecurityPolicy)
+# would prevent Drone server from running as root.
+port: 80
+
 ## The keys within the "env" map are mounted as environment variables on the Drone server pod.
 ## See the full reference of Drone server environment variables here:
 ## Ref: https://docs.drone.io/installation/reference/

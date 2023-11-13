@@ -12,3 +12,6 @@ data:
 {{- range $envKey, $envVal := .Values.env }}
   {{ $envKey | upper }}: {{ $envVal | quote }}
 {{- end }}
+{{- if .Values.port }}
+  DRONE_SERVER_PORT: :{{ .Values.port }}
+{{- end }}
