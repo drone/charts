@@ -120,7 +120,7 @@ spec:
             - secretRef:
                 name: {{ . }}
           {{- end }}
-          {{- with .Values.extraVolumeMounts }}
+          {{- with .Values.dind.extraVolumeMounts }}
           volumeMounts:
             {{- toYaml . | nindent 12 }}
           {{- end }}
