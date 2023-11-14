@@ -132,15 +132,15 @@ spec:
                 fieldRef:
                   fieldPath: metadata.name
           ports:
-            - name: tcp
+            - name: http
               containerPort: 3000
               protocol: TCP
           livenessProbe:
             tcpSocket:
-              port: tcp
+              port: http
           readinessProbe:
             tcpSocket:
-              port: tcp
+              port: http
           {{- with .Values.resources }}
           resources:
             {{- toYaml . | nindent 12 }}
