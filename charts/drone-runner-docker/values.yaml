@@ -204,11 +204,16 @@ env:
 class:
   # used for toleration and affinity and should map to node labels
   # provided by karpenter
+  # see https://docs.google.com/presentation/d/1zQ4CAbq4Qxd30aGqm0sybFsFS4HkGHkf8VwgqXM5pPI/edit?usp=sharing
   type: spot
-  # used for naming and node tags, etc
+  # used for runner label (not related to affinities etc)
   name: spot
   cpu: 2100m
   memory: 2.5gi
+  # Used for toleration and affinity and should map to node labels; overrides class type.
+  # This allows different classes to share the same node pool, where presumably each
+  # class type would have different cpu and memory requirements.
+  extends: ""
 
 runner:
   capacity: 1

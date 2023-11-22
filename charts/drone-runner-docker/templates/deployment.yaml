@@ -155,10 +155,10 @@ spec:
               - key: drone.io/class
                 operator: In
                 values:
-                - {{ .Values.class.type }}
+                - {{ .Values.class.extends | default .Values.class.type }}
       tolerations:
         - key: drone.io/class
           operator: Equal
-          value: {{ .Values.class.type }}
+          value: {{ .Values.class.extends | default .Values.class.type }}
           effect: NoSchedule
       terminationGracePeriodSeconds: {{ .Values.terminationGracePeriodSeconds }}
