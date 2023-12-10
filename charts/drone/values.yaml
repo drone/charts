@@ -53,6 +53,10 @@ podAnnotations: {}
 
 updateStrategy: {}
 
+# Listener port. Must be changed >1024 when securityContext set to runAsNonRoot
+# When changed, remember to set env variable DRONE_SERVER_PORT=<port>
+port: 80
+
 service:
   type: ClusterIP
   port: 8080
