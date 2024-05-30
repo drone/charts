@@ -217,7 +217,7 @@ class:
 
 runner:
   capacity: 1
-  privilegedImages: "076263846157.dkr.ecr.us-east-1.amazonaws.com/drone-plugin/ecr, 710267309417.dkr.ecr.us-east-1.amazonaws.com/builder/dnd"
+  privilegedImages: "710267309417.dkr.ecr.us-east-1.amazonaws.com/plugins/ecr, 710267309417.dkr.ecr.us-east-1.amazonaws.com/builder/dnd"
 
 environment: ""
 
