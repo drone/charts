@@ -12,6 +12,7 @@
     "podSecurityContext",
     "securityContext",
     "podAnnotations",
+    "podLabels",
     "service",
     "ingress",
     "resources",
@@ -103,6 +104,10 @@
     },
     "podAnnotations": {
       "$id": "#/properties/podAnnotations",
+      "type": "object"
+    },
+    "podLabels": {
+      "$id": "#/properties/podLabels",
       "type": "object"
     },
     "service": {
