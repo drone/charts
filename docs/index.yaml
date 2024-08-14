@@ -3,10 +3,10 @@ entries:
   drone:
   - apiVersion: v1
     appVersion: 2.20.0
-    created: "2024-08-14T15:59:31.875478115Z"
+    created: "2024-08-14T18:44:45.271032357Z"
     description: Drone is a self-service Continuous Delivery platform for busy development
       teams
-    digest: 5a9ddab47f9b40aa948ca87ed0ae91738430cfb447598bffa332eed3e65621e7
+    digest: 079ef2f47d2c01d2418ad7eadb3b51ac7b522dcc69fe7f192714d15aae60c502
     home: https://drone.io/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -544,9 +544,9 @@ entries:
   drone-kubernetes-secrets:
   - apiVersion: v1
     appVersion: 1.0.0
-    created: "2024-08-14T15:59:31.876217447Z"
+    created: "2024-08-14T18:44:45.271825873Z"
     description: A Kubernetes Secrets extension for Drone
-    digest: b8115f25d65a87c2802c2b7d6ea8795551d57eb28debe0e984c7da870a9d087c
+    digest: 0e28d42fec39037450248e5bfcd3f0c809ff9a3523f23ffe7305250178b6b4e3
     home: https://github.com/drone/drone-kubernetes-secrets
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -649,10 +649,10 @@ entries:
   drone-runner-docker:
   - apiVersion: v1
     appVersion: 1.8.1
-    created: "2024-08-14T15:59:31.877680554Z"
+    created: "2024-08-14T18:44:45.27322036Z"
     description: A Helm chart for the Drone Docker runner which uses Docker-in-Docker
       (dind)
-    digest: ca2234caad41421c52ce336a2fd7b74cc0412bde76db4470fea68a83bd926ba7
+    digest: 4c4e1945501d9e5710ccce6ee746c7f6ef2dc6091604f2a2534aedaefe859bf1
     home: https://docs.drone.io/runner/docker/overview/
     icon: https://drone.io/apple-touch-icon.png
     keywords:
@@ -1341,4 +1341,4 @@ entries:
     urls:
     - https://charts.drone.io/drone-runner-kube-0.1.2.tgz
     version: 0.1.2
-generated: "2024-08-14T15:59:31.874001967Z"
+generated: "2024-08-14T18:44:45.2682663Z"
