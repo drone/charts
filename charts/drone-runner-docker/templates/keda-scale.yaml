@@ -1,0 +1,30 @@
+{{- if .Values.kedaScaling.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: ScaledObject
+metadata:
+  name: {{ include "drone-runner-docker.fullname" . }}
+spec:
+  scaleTargetRef:
+    name: {{ include "drone-runner-docker.fullname" . }}
+  minReplicaCount: {{ .Values.kedaScaling.minReplicas }}
+  maxReplicaCount: {{ .Values.kedaScaling.maxReplicas }}
+  cooldownPeriod: {{ .Values.kedaScaling.cooldownPeriod }}
+  pollingInterval: {{ .Values.kedaScaling.pollingInterval }}
+  fallback:
+    failureThreshold: 3
+    replicas: {{ .Values.kedaScaling.fallbackReplicas }}
+  advanced:
+    horizontalPodAutoscalerConfig:
+      behavior:
+        scaleDown:
+          stabilizationWindowSeconds: {{ .Values.kedaScaling.scaleDown.stabilizationWindowSeconds }}
+  triggers:
+    - type: datadog
+      metricType: AverageValue
+      metadata:
+        query: "max:drone.build.runner.queue.pending{runner_name:{{ include "drone-runner-docker.runnerMetricName" . }},env:{{.Values.environment}}}.as_count() + max:drone.build.runner.queue.running{runner_name:{{ include "drone-runner-docker.runnerMetricName" . }},env:{{.Values.environment}}}.as_count()"
+        queryValue: "1"
+        metricUnavailableValue: "0"
+      authenticationRef:
+        name: {{ include "drone-runner-docker.fullname" . }}
+{{- end }}

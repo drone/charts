@@ -226,3 +226,20 @@ plugins:
     endpoint: http://drone-plugins:3001
   registry:
     endpoint: http://drone-plugins:3002
+
+kedaScaling:
+  enabled: true
+  minReplicas: 0
+  maxReplicas: 4
+  fallbackReplicas: 4
+  cooldownPeriod: 600
+  scaleDown:
+    stabilizationWindowSeconds: 200
+
+resources:
+  requests:
+    cpu: "500m"
+    memory: "250Mi"
+  limits:
+    cpu: "500m"
+    memory: "500Mi"

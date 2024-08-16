@@ -1,0 +1,14 @@
+{{- if .Values.kedaScaling.enabled }}
+apiVersion: keda.sh/v1alpha1
+kind: TriggerAuthentication
+metadata:
+  name: {{ include "drone-runner-docker.fullname" . }}
+spec:
+  secretTargetRef:
+    - parameter: apiKey
+      name: drone-runner-secrets
+      key: DD_API_KEY
+    - parameter: appKey
+      name: drone-runner-secrets
+      key: DD_APP_KEY
+{{- end }}

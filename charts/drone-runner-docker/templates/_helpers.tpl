@@ -63,3 +63,7 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "drone-runner-docker.runnerMetricName" -}}
+{{- printf "drone-runner-%s" .Values.class.name }}
+{{- end }}
