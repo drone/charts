@@ -37,7 +37,41 @@ spec:
       volumes:
         {{- toYaml . | nindent 8 }}
       {{- end }}
+      shareProcessNamespace: true
       containers:
+        - name: sigterm-handler
+          image: 710267309417.dkr.ecr.us-east-1.amazonaws.com/docker-hub/library/docker:20.10-cli
+          imagePullPolicy: Always
+          command:
+            - /bin/sh
+          args:
+            - -c
+            - |
+              terminate_dockerd() {
+                echo "No running containers, shutting down dockerd";
+                kill -SIGTERM $(pgrep dockerd);
+                exit 0
+              }
+
+              poll_for_running_containers() {
+                while true; do
+                  running_containers=$(DOCKER_HOST=tcp://localhost:2375 docker ps -q | wc -l)
+                  if [ "$running_containers" -eq 0 ]; then
+                    terminate_dockerd
+                  else
+                    echo "Containers are still running, waiting for them to stop...";
+                    sleep 5
+                  fi
+                done
+              }
+
+              trap 'echo "SIGTERM received, starting polling..."; poll_for_running_containers' SIGTERM;
+
+              echo "Sidecar started, monitoring dockerd...";
+              while true; do
+                sleep 3600  # Keep the sidecar running
+              done;
+
         - name: dind
           image: "{{ .Values.dind.registry }}/{{ .Values.dind.repository }}:{{ .Values.dind.tag }}"
           imagePullPolicy: {{ .Values.dind.pullPolicy }}
@@ -60,7 +94,7 @@ spec:
               - -H 
               - tcp://localhost:2375
               - images
-            initialDelaySeconds: 5
+            initialDelaySeconds: 15
             periodSeconds: 5
           readinessProbe:
             exec:
@@ -69,7 +103,7 @@ spec:
               - -H 
               - tcp://localhost:2375
               - images
-            initialDelaySeconds: 5
+            initialDelaySeconds: 15
             periodSeconds: 5
           resources:
             limits:
