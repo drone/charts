@@ -2,6 +2,15 @@
 # This is a YAML-formatted file.
 # Declare variables to be passed into your templates.
 
+# -- Choose kind of workload you want to use. StatefulSet or Deployment
+kind: StatefulSet
+
+persistance:
+  enabled: true
+  accessMode: ReadWriteOnce
+  storageClass: default
+  size: 32Gi
+
 # -- Mapping between IP and hostnames that will be injected as entries in the pod's hosts files
 # https://kubernetes.io/docs/tasks/network/customize-hosts-file-for-pods/
 hostAliases: []
@@ -9,6 +18,7 @@ hostAliases: []
 #   hostnames:
 #   - gitea-127.0.0.1.sslip.io
 replicaCount: 1
+revisionHistoryLimit: 3
 
 ## The official drone docker runner image, change tag to use a different version.
 ## ref: https://hub.docker.com/r/drone/drone-runner-docker/tags/
@@ -24,9 +34,7 @@ image:
 ## Volumes here per the Pod spec's "volumes" section of the dind container
 ## Ref: https://kubernetes.io/docs/concepts/storage/volumes/
 ##
-extraVolumes:
-  - name: storage
-    emptyDir: {}
+extraVolumes: []
 ## If you have declared extra volumes, mount them here, per the Pod Container's
 ## "volumeMounts" section.
 ##
@@ -51,10 +59,7 @@ dind:
   ## If you have declared extra volumes, mount them here, per the Pod Container's
   ## "volumeMounts" section of dind container
   ##
-  extraVolumeMounts:
-    - name: storage
-      mountPath: /var/lib/docker
-      subPath: docker
+  extraVolumeMounts: []
   resources:
     {}
     # We usually recommend not to specify default resources and to leave this as a conscious
